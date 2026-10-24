@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pisciculture">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#155e45">
+<title>Pisciculture Ahoué — Agrodok 15</title>
+<style>
+:root{--green:#155e45;--green2:#1e7a59;--mint:#e8f4ee;--bg:#f4f7f5;--ink:#172b24;--muted:#64756d;--line:#dce6e0;--white:#fff;--amber:#fff2d5;--red:#fde8e7;--shadow:0 8px 24px rgba(20,65,47,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:var(--green);color:white;padding:22px 14px;display:flex;flex-direction:column;gap:18px}.brand{display:flex;gap:10px;align-items:center;padding:0 8px}.logo{width:42px;height:42px;border-radius:13px;background:#e3f4e9;color:var(--green);display:grid;place-items:center;font-size:24px}.brand strong{display:block;font-size:16px}.brand small{opacity:.75}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#e1eee7;text-align:left;padding:11px 12px;border-radius:10px;display:flex;gap:11px;align-items:center}.nav button.active,.nav button:hover{background:#ffffff20;color:white}.sidefoot{margin-top:auto;font-size:12px;line-height:1.5;opacity:.8;padding:8px}.main{min-width:0}.topbar{background:white;border-bottom:1px solid var(--line);padding:17px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:3}.topbar h1{font-size:21px;margin:0}.topbar p{margin:4px 0 0;color:var(--muted);font-size:13px}.status{border-radius:99px;background:var(--mint);color:var(--green);padding:7px 10px;font-size:12px;font-weight:700;white-space:nowrap}.content{padding:24px;max-width:1400px;margin:auto}.pagehead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:20px}.pagehead h2{margin:0 0 6px;font-size:25px}.muted{color:var(--muted)}.small{font-size:12px}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);min-width:0}.statlabel{font-size:13px;color:var(--muted)}.statvalue{font-size:26px;font-weight:750;margin:8px 0 3px;letter-spacing:-.5px}.statnote{font-size:12px;color:var(--muted)}.two{grid-template-columns:1.2fr .8fr}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card h3{font-size:16px;margin:0 0 14px}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:white;color:var(--ink);font-weight:650}.btn.primary{background:var(--green);border-color:var(--green);color:white}.btn.soft{background:var(--mint);border-color:var(--mint);color:var(--green)}.btn.danger{color:#a52c27;border-color:#f0c7c4}.btn.sm{padding:6px 9px;font-size:12px}.alert{border-radius:12px;padding:12px 14px;background:var(--amber);color:#775414;font-size:13px;margin-bottom:12px}.alert.good{background:var(--mint);color:var(--green)}.ponds{grid-template-columns:repeat(2,minmax(0,1fr))}.pondhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.pondicon{background:#e7f2ec;border-radius:12px;padding:10px;font-size:22px}.pill{font-size:11px;border-radius:99px;background:#edf2ef;padding:5px 8px;color:#4c6257;display:inline-block}.pondmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.pondmetrics div{background:#f7faf8;padding:10px;border-radius:10px}.pondmetrics strong{display:block;font-size:16px}.pondmetrics span{font-size:11px;color:var(--muted)}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}td .muted{font-size:11px}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#52665c}.field input,.field select,.field textarea{width:100%;border:1px solid #cfdcd4;border-radius:9px;padding:10px;background:white;color:var(--ink);min-width:0}.field textarea{min-height:80px;resize:vertical}.sectiontitle{font-size:14px;font-weight:750;margin:18px 0 10px}.progress{height:8px;background:#e7eee9;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;background:var(--green2);border-radius:99px}.step{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.check{width:23px;height:23px;border-radius:7px;border:1.5px solid #afc4b7;display:grid;place-items:center;flex-shrink:0;color:white}.check.done{background:var(--green);border-color:var(--green)}.stepmain{flex:1}.stepmain strong{display:block;font-size:14px}.stepmain p{margin:4px 0 0;font-size:12px;color:var(--muted)}.badge{font-size:11px;border-radius:6px;background:#edf3ef;padding:4px 7px}.money{font-variant-numeric:tabular-nums}.barrow{display:grid;grid-template-columns:120px 1fr 88px;gap:10px;align-items:center;font-size:12px;margin:13px 0}.bar{height:8px;background:#edf2ef;border-radius:99px;overflow:hidden}.bar span{height:100%;display:block;background:var(--green2)}.hidden{display:none!important}.footnote{font-size:12px;color:var(--muted);line-height:1.5}.toast{position:fixed;bottom:20px;right:20px;background:#163d2e;color:white;padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);z-index:9;display:none}.mobilemenu{display:none}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{padding:12px;gap:10px}.brand{padding:3px}.nav{display:flex;overflow:auto;gap:5px}.nav button{white-space:nowrap;padding:9px 11px}.sidefoot{display:none}.topbar{padding:14px 18px}.content{padding:17px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.three{grid-template-columns:1fr}.ponds{grid-template-columns:1fr}}
+@media(max-width:520px){.content{padding:12px}.topbar h1{font-size:17px}.pagehead h2{font-size:21px}.stats{gap:9px}.card{padding:14px}.statvalue{font-size:22px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.barrow{grid-template-columns:90px 1fr 70px}.status{font-size:10px}.topbar p{font-size:11px}}
+.badge.ok{background:var(--mint);color:var(--green)}.badge.todo{background:var(--amber);color:#775414}.badge.late{background:var(--red);color:#a52c27}.card.editing{border-color:var(--green2);box-shadow:0 0 0 3px #1e7a5926}.alert.urgent{background:var(--red);color:#a52c27;font-weight:600}.taskside{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.check:disabled{cursor:default}.planres{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}.planres h4{margin:0 0 4px;font-size:15px}.pondmetrics.wide{grid-template-columns:repeat(3,1fr)}.pondmetrics strong{word-break:break-word}details summary{cursor:pointer;font-weight:700;margin:8px 0}input[type=date]{min-height:40px}.mini{font-size:12px;color:var(--muted)}
+@media(max-width:900px){.app{grid-template-columns:minmax(0,1fr)}.sidebar,.main{min-width:0;max-width:100vw}.nav{max-width:100%}.pagehead{flex-wrap:wrap}}
+@media(max-width:520px){.step{flex-wrap:wrap}.taskside{justify-content:flex-start;width:100%;padding-left:35px}.pondmetrics.wide{grid-template-columns:repeat(2,1fr)}}
+@media print{.sidebar,.topbar,.toast,.actions .btn,.btn.sm{display:none!important}.app{display:block}.content{padding:0}.card{box-shadow:none;break-inside:avoid}}
+.wk{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);margin-bottom:12px}.wk>summary{list-style:none;padding:14px 18px;cursor:pointer;display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0}.wk>summary::-webkit-details-marker{display:none}.wk .wkbody{padding:0 18px 16px}.blank td{height:30px;border:1px solid #999}.alert ul{padding-left:18px}
+@media print{body.pr-routine #view>div>*:not(.grid){display:none!important}body.pr-routine #view .grid>*:not(#routine){display:none!important}body.pr-routine #view .grid{display:block}.no-print{display:none!important}}
+
+html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent;padding-bottom:env(safe-area-inset-bottom)}
+.topbar{padding-top:calc(17px + env(safe-area-inset-top));padding-left:max(26px,env(safe-area-inset-left));padding-right:max(26px,env(safe-area-inset-right))}
+.field input,.field select,.field textarea,input[type=date]{font-size:16px}
+.field input[type=date],input[type=date]{-webkit-appearance:none;appearance:none;min-height:42px}
+.btn{min-height:40px}.btn.sm{min-height:34px}
+.mobilemenu{display:none;border:1px solid var(--line);background:var(--mint);color:var(--green);border-radius:10px;font-size:20px;line-height:1;padding:9px 13px;flex-shrink:0}
+@media(max-width:900px){
+ .mobilemenu{display:block}
+ .topbar{z-index:30;padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+ .sidebar{padding:0;gap:0}.sidebar .brand{display:none}
+ .nav{display:none}
+ .nav.open{display:grid;grid-template-columns:1fr 1fr;gap:6px;position:fixed;left:0;right:0;top:0;bottom:0;z-index:25;background:var(--green);padding:calc(100px + env(safe-area-inset-top)) 14px calc(24px + env(safe-area-inset-bottom));overflow:auto;align-content:start;max-width:100%}
+ .nav.open button{background:#ffffff1c;white-space:normal;padding:14px 12px;font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">🐟</div><div><strong>Pisciculture Ahoué</strong><small>Gestion de l'exploitation</small></div></div>
+  <nav class="nav" id="nav">
+    <button data-page="dashboard" class="active">▦ <span>Tableau de bord</span></button>
+    <button data-page="daily">☀ <span>Journal du jour</span></button>
+    <button data-page="weekly">◷ <span>Programme du samedi</span></button>
+    <button data-page="steps">✓ <span>Parcours du projet</span></button>
+    <button data-page="ponds">◈ <span>Étangs & poissons</span></button>
+    <button data-page="site">⌂ <span>Diagnostic des ouvrages (FAO)</span></button>
+    <button data-page="guide">📘 <span>Guide technique Agrodok</span></button>
+    <button data-page="sampling">⌕ <span>Échantillonnages</span></button>
+    <button data-page="plan">∑ <span>Plan d'alimentation</span></button>
+    <button data-page="feeding">♧ <span>Alimentation</span></button>
+    <button data-page="water">≈ <span>Qualité de l'eau</span></button>
+    <button data-page="mortality">＋ <span>Mortalités</span></button>
+    <button data-page="expenses">↘ <span>Dépenses & stocks</span></button>
+    <button data-page="harvest">⚖ <span>Récoltes</span></button>
+    <button data-page="sales">↗ <span>Ventes & clients</span></button>
+    <button data-page="reports">▤ <span>Trésorerie & rapports</span></button>
+    <button data-page="settings">⚙ <span>Paramètres & sauvegarde</span></button>
+  </nav>
+  <div class="sidefoot">Données conservées sur cet appareil.<br>Fais régulièrement une sauvegarde JSON.</div>
+</aside>
+<main class="main">
+<header class="topbar"><button class="mobilemenu" id="menuBtn" aria-label="Menu" onclick="toggleMenu()">☰</button><div style="flex:1;min-width:0"><h1 id="topTitle">Tableau de bord</h1><p>Projet piscicole • Ahoué, Côte d'Ivoire • Montants en FCFA</p></div><div class="status" id="storageStatus">● Stockage local</div></header>
+<div class="content" id="view"></div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='piscicultureAhoue_v1';
+const defaultState={
+ config:{name:'Pisciculture Ahoué',owner:'Propriétaire',budget:250000,currency:'FCFA',feedPrice:0,startDate:new Date().toISOString().slice(0,10),notes:'Deux étangs en terre de 200 m². Profondeur estimée : 1 à 1,5 m. Plusieurs espèces sauvages présentes.'},
+ siteChecks:{pondType:'Inconnu',waterSource:'Inconnue',drainage:'À vérifier',waterControl:'À vérifier',inlet:'À vérifier',outlet:'À vérifier',overflow:'À vérifier',dikes:'À vérifier',leaks:'À vérifier',floodRisk:'À vérifier',access:'À vérifier',pondConnection:'À vérifier',notes:''},
+ ponds:[
+ {id:'A',name:'Étang A',area:200,depth:1.25,stockMin:100,stockMax:300,stockEstimate:200,species:'Plusieurs espèces sauvages',status:'Diagnostic à réaliser',notes:'Stock estimé entre 100 et 300 poissons.'},
+ {id:'B',name:'Étang B',area:200,depth:1.25,stockMin:0,stockMax:99,stockEstimate:50,species:'Plusieurs espèces sauvages',status:'Diagnostic à réaliser',notes:'Stock estimé à moins de 100 poissons.'}
+ ],
+ steps:[
+ {title:'Inspecter les digues et les ouvrages d’eau',desc:'Repérer fuites, érosion, entrées/sorties, trop-plein et risques de débordement (priorité inspirée de la FAO).',done:false},
+ {title:'Identifier les espèces présentes',desc:'Prendre des photos et demander confirmation à un technicien si nécessaire.',done:false},
+ {title:'Faire une pêche d’échantillonnage',desc:'Deux passages comparables par étang, sans vider les bassins.',done:false},
+ {title:'Peser et mesurer les poissons',desc:'Noter espèce, longueur et poids sur un échantillon représentatif.',done:false},
+ {title:'Contrôler la qualité de l’eau',desc:'Mesurer pH et, si possible, oxygène dissous et température.',done:false},
+ {title:'Valider la ration alimentaire',desc:'Choisir un aliment adapté à l’espèce et à la biomasse estimée.',done:false},
+ {title:'Suivre les coûts et la croissance',desc:'Enregistrer chaque dépense, ration, mortalité et pesée.',done:false},
+ {title:'Préparer la commercialisation',desc:'Contacter des acheteurs et relever les prix locaux avant récolte.',done:false}
+ ],
+ samples:[],feedings:[],water:[],mortalities:[],expenses:[],stockItems:[],harvests:[],sales:[],clients:[],groups:[],daily:{},agro:{},lastBackup:null,weekly:{start:'',done:{},cp:{}}
+};
+let state=load();
+function daysBetween(a,b){return Math.round((new Date(b+'T00:00:00Z')-new Date(a+'T00:00:00Z'))/86400000)}
+function migrate(s){
+ ['samples','feedings','water','mortalities','expenses','stockItems','harvests','sales','clients','groups','ponds','steps'].forEach(k=>{if(!Array.isArray(s[k]))s[k]=structuredClone(defaultState[k])});
+ if(!s.daily||typeof s.daily!=='object'||Array.isArray(s.daily))s.daily={};
+ if(!s.agro||typeof s.agro!=='object'||Array.isArray(s.agro))s.agro={};
+ if(!s.weekly||typeof s.weekly!=='object')s.weekly={};s.weekly={start:s.weekly.start||'',done:s.weekly.done||{},cp:s.weekly.cp||{}};
+ s.sales.forEach(x=>{if(!Array.isArray(x.payments)){let p=Number(x.paid)||0;x.payments=p>0?[{id:uid(),date:x.date,amount:p,method:'',note:'Encaissement initial'}]:[]}delete x.paid});
+ return s}
+function load(){try{let s=JSON.parse(localStorage.getItem(KEY));if(s&&typeof s==='object'){return migrate({...structuredClone(defaultState),...s,config:{...defaultState.config,...s.config}})}}catch(e){}return structuredClone(defaultState)}
+function persist(){try{if(!state.siteChecks)state.siteChecks=structuredClone(defaultState.siteChecks);localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('storageStatus').textContent='● Sauvegardé sur cet appareil';}catch(e){document.getElementById('storageStatus').textContent='⚠ Stockage indisponible';}}
+function save(){persist();render()}
+function lastBackupText(){if(!state.lastBackup)return 'jamais';let d=state.lastBackup.slice(0,10),n=daysBetween(d,dateNow());return d+(n===0?' (aujourd’hui)':' (il y a '+n+' j)')}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function money(n){return (Number(n)||0).toLocaleString('fr-FR',{maximumFractionDigits:0})+' FCFA'}
+function num(n){return Number(n)||0}
+function dateNow(){return new Date().toISOString().slice(0,10)}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function sum(arr,key){return arr.reduce((a,x)=>a+num(x[key]),0)}
+function toast(s){let el=document.getElementById('toast');el.textContent=s;el.style.display='block';setTimeout(()=>el.style.display='none',2500)}
+const titles={dashboard:'Tableau de bord',steps:'Parcours du projet',ponds:'Étangs & poissons',site:'Diagnostic des ouvrages (FAO)',guide:'Guide technique Agrodok 15',sampling:'Échantillonnages',feeding:'Alimentation',water:'Qualité de l’eau',mortality:'Mortalités',expenses:'Dépenses & stocks',harvest:'Récoltes',sales:'Ventes & clients',reports:'Trésorerie & rapports',settings:'Paramètres & sauvegarde',daily:'Journal du jour',weekly:'Programme du samedi',plan:'Plan d’alimentation'};
+let page='dashboard';
+document.getElementById('nav').addEventListener('click',e=>{let b=e.target.closest('button[data-page]');if(b){editing=null;closeMenu();page=b.dataset.page;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x===b));render()}});
+function card(title,body,extra=''){return `<section class="card ${extra}"><h3>${title}</h3>${body}</section>`}
+function empty(text='Aucune donnée enregistrée.'){return `<div class="empty">${text}</div>`}
+function table(headers,rows){if(!rows.length)return empty();return `<div class="tablewrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table></div>`}
+function field(label,name,type='text',value='',opts=null,attrs=''){let input=type==='select'?`<select name="${name}" ${attrs}>${opts.map(o=>`<option value="${esc(o[0])}" ${String(value)===String(o[0])?'selected':''}>${esc(o[1])}</option>`).join('')}</select>`:type==='textarea'?`<textarea name="${name}" ${attrs}>${esc(value)}</textarea>`:`<input name="${name}" type="${type}" value="${esc(value)}" ${attrs}>`;return `<div class="field"><label>${label}</label>${input}</div>`}
+let editing=null,dailyDate=dateNow(),feedPrefill=null,payPrefill=null;
+function form(title,fields,submit,label='Enregistrer',arr=null){let on=arr&&isEd(arr);return `<form class="card ${on?'editing':''}" data-form="${submit}" ${on?`data-edit="${esc(editing.id)}"`:''}><h3>${on?'✏️ Modifier — ':''}${title}</h3><div class="formgrid">${fields}</div><div class="actions" style="margin-top:15px"><button class="btn primary" type="submit">${on?'Mettre à jour':label}</button>${on?'<button class="btn" type="button" onclick="cancelEdit()">Annuler</button>':'<button class="btn" type="reset">Réinitialiser</button>'}</div></form>`}
+function ed(arr){return editing&&editing.arr===arr?(state[arr].find(x=>x.id===editing.id)||{}):{}}
+function isEd(arr){return !!(editing&&editing.arr===arr&&state[arr].some(x=>x.id===editing.id))}
+function dv(e,k,def){return e[k]!==undefined&&e[k]!==null?e[k]:def}
+function rowActions(arr,id){return `<button class="btn sm" onclick="edit('${arr}','${id}')">Modifier</button> <button class="btn sm danger" onclick="del('${arr}','${id}')">Supprimer</button>`}
+function recent(arr){return arr.map((x,i)=>[x,i]).sort((a,b)=>String(b[0].date||'').localeCompare(String(a[0].date||''))||b[1]-a[1]).map(p=>p[0])}
+function paidOf(x){return (x.payments||[]).reduce((a,p)=>a+num(p.amount),0)}
+function resteOf(x){return num(x.total)-paidOf(x)}
+function totalPaid(){return state.sales.reduce((a,x)=>a+paidOf(x),0)}
+function receivables(){return state.sales.reduce((a,x)=>a+Math.max(0,resteOf(x)),0)}
+function cashBalance(){return num(state.config.budget)-sum(state.expenses,'amount')+totalPaid()}
+function fkg(x){return x<1?Math.round(x*1000)+' g':x.toFixed(2).replace('.',',')+' kg'}
+function fnum(x,d=1){return Number(x).toFixed(d).replace('.',',')}
+function pondOptions(){return state.ponds.map(p=>[p.id,p.name])}
+function dashboard(){
+ let expenses=sum(state.expenses,'amount'),paid=totalPaid(),done=state.steps.filter(s=>s.done).length,today=dateNow();
+ let mort7=state.mortalities.filter(x=>x.date&&daysBetween(x.date,today)>=0&&daysBetween(x.date,today)<=7).reduce((a,x)=>a+num(x.count),0);
+ let alerts=[];
+ if(!state.samples.length)alerts.push({text:'Échantillonnage non enregistré : ne fixe pas encore la ration ni la densité.'});
+ if(!state.water.length)alerts.push({text:'Aucune mesure de qualité de l’eau enregistrée.'});
+ if(mort7>0)alerts.push({text:`${mort7} mortalité(s) sur les 7 derniers jours : vérifier les causes et l’eau.`});
+ if(expenses>num(state.config.budget))alerts.push({text:'Les dépenses enregistrées dépassent le budget initial.'});
+ dailyAlerts(today).forEach(a=>alerts.push(a));
+ let pend=pendingTasks(today),tot=0,dn=0;
+ state.ponds.forEach(p=>DAILY.filter(t=>!t.global).forEach(t=>{let st=taskState(t,today,p.id);if(!t.every||st.due||st.done){tot++;if(st.done)dn++}}));
+ DAILY.filter(t=>t.global).forEach(t=>{let st=taskState(t,today,'all');if(!t.every||st.due||st.done){tot++;if(st.done)dn++}});
+ return `<div class="pagehead"><div><h2>Bonjour, bienvenue 👋</h2><div class="muted">Vue d’ensemble de ton exploitation à Ahoué.</div></div><div class="actions"><button class="btn primary" onclick="go('daily')">☀ Journal du jour</button><button class="btn soft" onclick="go('expenses')">+ Dépense</button><button class="btn soft" onclick="go('sampling')">+ Échantillonnage</button></div></div>
+ ${alerts.map(a=>`<div class="alert ${a.urgent?'urgent':''}">${esc(a.text)}</div>`).join('')}
+ <div class="grid stats">
+ ${stat('Budget initial',money(state.config.budget),'Budget de relance configuré')}
+ ${stat('Dépenses enregistrées',money(expenses),`${state.expenses.length} opération(s)`)}
+ ${stat('Encaissements',money(paid),`${state.sales.length} vente(s) • reste à encaisser : ${money(receivables())}`)}
+ ${stat('Trésorerie',money(cashBalance()),'Budget + encaissements − dépenses')}
+ </div>
+ <div class="grid two">
+ ${card('Aujourd’hui — actions à mener',`<div style="display:flex;justify-content:space-between;margin-bottom:9px"><span class="muted small">${dn}/${tot} actions faites</span><strong>${tot?Math.round(dn/tot*100):0}%</strong></div><div class="progress"><span style="width:${tot?dn/tot*100:0}%"></span></div><div style="margin-top:10px">${pend.length?pend.slice(0,5).map(x=>`<div class="step"><div class="check"></div><div class="stepmain"><strong>${esc(x.t.title)}</strong><p>${x.pond==='all'?'Exploitation':esc((state.ponds.find(p=>p.id===x.pond)||{}).name||x.pond)}</p></div></div>`).join(''):'<div class="empty">Tout est fait pour aujourd’hui 🎉</div>'}${pend.length>5?`<p class="footnote">… et ${pend.length-5} autre(s).</p>`:''}<button class="btn primary" style="margin-top:12px" onclick="go('daily')">Ouvrir le journal du jour →</button></div>`)}
+ ${card('Parcours de relance',`<div style="display:flex;justify-content:space-between;margin-bottom:9px"><span class="muted small">${done}/${state.steps.length} étapes terminées</span><strong>${Math.round(done/state.steps.length*100)}%</strong></div><div class="progress"><span style="width:${done/state.steps.length*100}%"></span></div><div style="margin-top:10px">${state.steps.slice(0,4).map((s,i)=>`<div class="step"><div class="check ${s.done?'done':''}">${s.done?'✓':''}</div><div class="stepmain"><strong>${esc(s.title)}</strong><p>${esc(s.desc)}</p></div></div>`).join('')}<button class="btn" style="margin-top:12px" onclick="go('steps')">Voir toutes les étapes →</button></div>`)}
+ </div>
+ <div style="margin-top:16px">${weeklyDashCard()}</div>
+ <div style="margin-top:16px">${card('Tes étangs',`<div class="grid ponds">${state.ponds.map(p=>`<div style="border:1px solid var(--line);border-radius:12px;padding:14px"><div class="pondhead"><div><strong>${esc(p.name)}</strong><div class="muted small">${p.area} m² • profondeur ${p.depth} m</div></div><span class="pondicon">🐟</span></div><div style="margin-top:12px;font-size:13px">${esc(p.species)}</div><div class="pondmetrics"><div><strong>${p.stockEstimate??'—'}</strong><span>Effectif estimé</span></div><div><strong>${p.area}</strong><span>Surface m²</span></div><div><strong>${p.depth} m</strong><span>Profondeur</span></div></div><div style="margin-top:12px"><span class="pill">${esc(p.status)}</span> <span class="pill">${esc(plannedFeedText(p.id))}</span></div><button class="btn sm" style="margin-top:12px" onclick="go('ponds')">Gérer l’étang →</button></div>`).join('')}</div>`)}</div>
+ <div class="grid two" style="margin-top:16px">${card('Dernières dépenses',table(['Date','Catégorie','Montant'],recent(state.expenses).slice(0,5).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.category)}</td><td class="money">${money(x.amount)}</td></tr>`)))}${card('Dernières opérations',table(['Date','Opération','Détail'],recent([...state.feedings.map(x=>({...x,_t:'Alimentation',_d:`${x.pond} • ${x.kg} kg`})),...state.mortalities.map(x=>({...x,_t:'Mortalité',_d:`${x.pond} • ${x.count} poisson(s)`}))]).slice(0,5).map(x=>`<tr><td>${esc(x.date)}</td><td>${x._t}</td><td>${esc(x._d)}</td></tr>`)))} </div>
+ <p class="footnote" style="margin-top:14px">Les effectifs et profondeurs affichés sont des estimations initiales modifiables. La trésorerie est une projection simplifiée et ne remplace pas une comptabilité complète.</p>`;
+}
+function stat(label,value,note){return `<div class="card"><div class="statlabel">${label}</div><div class="statvalue">${value}</div><div class="statnote">${note}</div></div>`}
+function stepsPage(){return `<div class="pagehead"><div><h2>Parcours du projet</h2><div class="muted">Coche les étapes au fur et à mesure de l’avancement.</div></div></div>${card('Progression',`<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span>${state.steps.filter(s=>s.done).length} étapes sur ${state.steps.length}</span><strong>${Math.round(state.steps.filter(s=>s.done).length/state.steps.length*100)}%</strong></div><div class="progress"><span style="width:${state.steps.filter(s=>s.done).length/state.steps.length*100}%"></span></div>${state.steps.map((s,i)=>`<div class="step"><button class="check ${s.done?'done':''}" onclick="toggleStep(${i})">${s.done?'✓':''}</button><div class="stepmain"><strong>${esc(s.title)}</strong><p>${esc(s.desc)}</p></div><span class="badge">${s.done?'Terminé':'À faire'}</span></div>`).join('')}`)}`
+}
+function pondsPage(){let fields=state.ponds.map((p,i)=>`<div class="card"><h3>${esc(p.name)}</h3><form data-form="editPond" data-id="${p.id}"><div class="formgrid">${field('Nom','name','text',p.name)}${field('Surface (m²)','area','number',p.area,null,'min="1" step="1" required')}${field('Profondeur moyenne (m)','depth','number',p.depth,null,'min="0.1" step="0.05" required')}${field('Effectif estimé','stockEstimate','number',p.stockEstimate,null,'min="0" step="1" required')}${field('Espèces observées','species','text',p.species)}${field('Statut','status','select',p.status,[['Diagnostic à réaliser','Diagnostic à réaliser'],['En préparation','En préparation'],['En production','En production'],['En observation','En observation'],['En repos','En repos']])}${field('Notes','notes','textarea',p.notes)}</div><button class="btn primary" style="margin-top:13px">Enregistrer les modifications</button></form></div>`).join('');
+return `<div class="pagehead"><div><h2>Étangs & poissons</h2><div class="muted">Modifie les caractéristiques et les estimations de stock.</div></div></div><div class="grid ponds">${fields}</div><div class="alert" style="margin-top:15px">Important : les effectifs sont des estimations. N’ajoute pas d’alevins avant l’identification des espèces et l’évaluation de la qualité de l’eau.</div>`}
+
+function sitePage(){
+ let s=state.siteChecks||{};
+ const opts=a=>a.map(v=>[v,v]);
+ let fields=field('Type d’étang observé','pondType','select',s.pondType||'Inconnu',opts(['Inconnu','Étang creusé / en déblai','Étang de barrage','Étang en dérivation','Creusé et endigué']))+
+ field('Origine de l’eau','waterSource','select',s.waterSource||'Inconnue',opts(['Inconnue','Pluie / ruissellement','Nappe / infiltration','Source','Cours d’eau / canal','Pompage','Mixte']))+
+ field('Possibilité de vidange','drainage','select',s.drainage||'À vérifier',opts(['À vérifier','Vidange gravitaire complète','Vidange partielle','Vidange par pompage','Non vidangeable']))+
+ field('Contrôle de l’alimentation en eau','waterControl','select',s.waterControl||'À vérifier',opts(['À vérifier','Contrôlable','Partiellement contrôlable','Non contrôlable']))+
+ field('Entrée d’eau / grille anti-poissons','inlet','select',s.inlet||'À vérifier',opts(['À vérifier','Présente et fonctionnelle','Présente mais à réparer','Absente','Sans objet']))+
+ field('Sortie / vidange et grille','outlet','select',s.outlet||'À vérifier',opts(['À vérifier','Présente et fonctionnelle','Présente mais à réparer','Absente','Sans objet']))+
+ field('Trop-plein / évacuation des crues','overflow','select',s.overflow||'À vérifier',opts(['À vérifier','Présent et dégagé','Présent mais obstrué','Absent / à évaluer']))+
+ field('État des digues','dikes','select',s.dikes||'À vérifier',opts(['À vérifier','Bon état apparent','Érosion / végétation à gérer','Affaissement / fissures','Fuite suspectée']))+
+ field('Fuites / baisse du niveau','leaks','select',s.leaks||'À vérifier',opts(['À vérifier','Aucune fuite visible','Baisse inexpliquée','Fuite observée']))+
+ field('Risque de crue / ruissellement','floodRisk','select',s.floodRisk||'À vérifier',opts(['À vérifier','Faible selon observation','À surveiller','Risque important / avis local nécessaire']))+
+ field('Accès pour nourrir et récolter','access','select',s.access||'À vérifier',opts(['À vérifier','Bon accès','Accès limité','À améliorer']))+
+ field('Relation entre les deux étangs','pondConnection','select',s.pondConnection||'À vérifier',opts(['À vérifier','Alimentation indépendante / parallèle','En chapelet (eau de A vers B ou inverse)','Connexion inconnue']))+
+ field('Notes du diagnostic','notes','textarea',s.notes||'');
+ let alerts=[];
+ if((s.inlet||'').includes('Absente'))alerts.push('Évaluer une entrée protégée pour limiter l’entrée de poissons indésirables et la fuite des poissons élevés.');
+ if((s.outlet||'').includes('Absente'))alerts.push('Évaluer un dispositif de vidange/récolte avant d’investir dans un cycle de production.');
+ if((s.overflow||'').includes('Absent'))alerts.push('Faire évaluer une évacuation sûre des eaux excédentaires avant les fortes pluies.');
+ if((s.dikes||'').includes('Fuite')||(s.leaks||'').includes('Fuite')||(s.leaks||'').includes('Baisse'))alerts.push('Priorité : rechercher la cause d’une fuite ou baisse anormale avant d’augmenter l’alimentation.');
+ let rows=state.ponds.map(p=>`<tr><td>${esc(p.name)}</td><td>${p.area} m²</td><td>${p.depth} m (saisie)</td><td>${Math.round(p.area*p.depth).toLocaleString('fr-FR')} m³</td></tr>`);
+ return `<div class="pagehead"><div><h2>Diagnostic des ouvrages — principes FAO</h2><div class="muted">Maîtrise de l’eau, digues, évacuation, récolte et accès.</div></div><span class="pill">Diagnostic initial</span></div>
+ <div class="alert">Inspection à réaliser sur place. Ce formulaire ne remplace pas un diagnostic technique. Évite les gros travaux sans évaluer le sol, les niveaux d’eau et le risque de crue.</div>
+ <div class="grid two">${form('Fiche d’inspection du site',fields,'siteCheck','Enregistrer le diagnostic')}${card('Volumes théoriques indicatifs',`<p class="muted small">Calcul simplifié : surface en eau × profondeur moyenne estimée. La profondeur réelle varie souvent selon les zones de l’étang.</p>${table(['Étang','Surface','Profondeur saisie','Volume indicatif'],rows)}<div class="alert">Pour 200 m² et une profondeur moyenne supposée de 1 à 1,5 m, le volume géométrique serait de 200 à 300 m³ par étang. Ce n’est pas une mesure réelle et ce chiffre ne suffit pas à calculer une densité d’élevage.</div><div class="sectiontitle">Liste de contrôle inspirée de la FAO</div><ul><li>Digues sans érosion, affaissement ni fuite visible.</li><li>Entrée d’eau contrôlable et protégée si elle existe.</li><li>Sortie/vidange adaptée à une récolte maîtrisée, si le site le permet.</li><li>Évacuation sûre des excès d’eau et des crues.</li><li>Accès aux ouvrages pour nourrir, surveiller et récolter.</li><li>Si possible, alimentation indépendante des deux étangs pour limiter le transfert des problèmes d’un étang à l’autre.</li></ul><p class="footnote">Référence : FAO, <a href="https://www.fao.org/fishery/static/FAO_Training/FAO_Training/General/x6708f/x6708f01.htm" target="_blank" rel="noopener">Les étangs et leurs ouvrages</a>, sections sur les types d’étangs, profondeur et agencement.</p>`)}</div>
+ ${alerts.map(a=>`<div class="alert">${esc(a)}</div>`).join('')}
+ <p class="footnote">Le manuel FAO donne des principes généraux. Comme les étangs d’Ahoué existent déjà et sont remplis, la priorité est de diagnostiquer et de réparer seulement ce qui est nécessaire, sans lancer de gros travaux à l’aveugle.</p>`;
+}
+
+
+function guidePage(){
+const items = [
+ {title:'1. Confirmer les conditions du site',body:'Vérifier la disponibilité de l’eau en saison sèche et en saison des pluies, son origine, les risques de pollution, la température et la salinité. Le manuel indique qu’une température de 20 à 30 °C convient généralement à la pisciculture tropicale.'},
+ {title:'2. Choisir un système adapté aux moyens',body:'L’Agrodok distingue les systèmes extensifs (peu d’intrants, forte dépendance aux aliments naturels) et semi-intensifs (aliments et/ou fertilisation supplémentaires). Le manuel se concentre surtout sur ces deux approches et décrit les systèmes intensifs comme plus coûteux et plus exigeants en oxygène et en gestion.'},
+ {title:'3. Sécuriser les étangs existants avant d’investir',body:'Inspecter les digues, les fuites, les entrées et sorties d’eau, les filtres, le trop-plein et les risques de ruissellement. Le manuel recommande de protéger les digues contre l’érosion et d’éviter que les eaux de ruissellement chargées de boue ou de polluants entrent directement dans l’étang.'},
+ {title:'4. Identifier les poissons avant le repeuplement',body:'Sélectionner les espèces selon la demande locale, la croissance, la reproduction en captivité, la disponibilité d’alevins, les aliments accessibles et la résistance aux maladies. Le manuel conseille, lorsque c’est possible, de privilégier les espèces locales et de ne pas introduire d’espèces sans évaluation préalable.'},
+ {title:'5. Estimer la biomasse et décider de la ration',body:'Échantillonner les poissons, les compter dans l’échantillon, les mesurer et les peser. Ne pas calculer une ration ou une densité fiable à partir d’un simple nombre approximatif de poissons : il faut connaître au minimum l’espèce et le poids moyen.'},
+ {title:'6. Suivre l’eau et prévenir le manque d’oxygène',body:'Observer les poissons tôt le matin et noter température, pH, oxygène dissous si un appareil est disponible, transparence, couleur et odeur. Le manuel indique que l’oxygène est souvent au plus bas en début de matinée. Des poissons qui pipent l’air à la surface constituent un signal d’urgence.'},
+ {title:'7. Nourrir avec prudence',body:'Distinguer aliments naturels de l’étang et aliments supplémentaires. Consigner chaque distribution et son coût. Éviter les apports excessifs d’aliments ou de fertilisants : leur décomposition et une forte densité de poissons peuvent provoquer un manque d’oxygène.'},
+ {title:'8. Tester le périphyton seulement à petite échelle',body:'Des tiges de bambou ou des branches immergées peuvent développer du périphyton, source de nourriture naturelle et d’abri. Le résultat dépend de l’espèce, de la qualité de l’eau et de la quantité de substrat. Le manuel signale aussi des besoins de main-d’œuvre et des risques si des matériaux organiques se décomposent. Tester dans une zone limitée et suivre l’eau avant d’étendre.'},
+ {title:'9. Préparer la récolte et la conservation',body:'Planifier la récolte et la destination du poisson. Le poisson frais se détériore rapidement sous climat tropical : utiliser une hygiène rigoureuse et prévoir une vente rapide, de la glace si disponible ou une transformation adaptée comme le fumage, le salage ou le séchage.'}
+];
+return `<div class="pagehead"><div><h2>Guide technique — Agrodok 15</h2><div class="muted">Repères pratiques issus du document « La pisciculture à petite échelle en eau douce » (Agromisa/CTA, 2008), adaptés au diagnostic de tes deux étangs existants à Ahoué.</div></div></div>
+<div class="alert">Important : ce guide est un support de décision, pas un diagnostic sur place. Les recommandations de densité, de ration, de fertilisation et de traitement dépendent de l’espèce, de la biomasse et de la qualité réelle de l’eau.</div>
+<div class="grid two">
+${card('Priorités recommandées pour Ahoué',`<ol><li>Inspecter les digues, les fuites et les dispositifs de trop-plein.</li><li>Identifier les espèces sauvages présentes.</li><li>Faire un échantillonnage comparable dans chaque étang et peser les poissons.</li><li>Mesurer ou faire mesurer la qualité de l’eau.</li><li>Établir un budget des besoins avant tout achat d’alevins ou d’aliments.</li></ol><p class="footnote">Avec le budget initial limité, privilégier une conduite extensive ou semi-intensive prudente avant d’envisager une intensification.</p>`)}
+${card('Repères de qualité de l’eau du manuel',`<ul><li><b>Température :</b> 20–30 °C généralement favorable aux espèces d’eau douce tropicales.</li><li><b>pH :</b> intervalle préférentiel indiqué dans le manuel : 6,7–8,6.</li><li><b>Oxygène :</b> surveiller surtout tôt le matin ; les poissons qui viennent respirer en surface nécessitent une réaction immédiate.</li><li><b>Transparence :</b> mesurer si possible avec un disque de Secchi et interpréter avec la couleur de l’eau et le comportement des poissons.</li></ul><p class="footnote">Ces repères sont généraux et ne remplacent pas les exigences spécifiques de l’espèce élevée.</p>`)}
+</div>
+<div class="grid two" style="margin-top:16px">
+${card('Checklist terrain',`<p class="muted small">Coche les vérifications effectuées. Tes coches sont enregistrées avec tes données ; enregistre les constats détaillés dans les modules correspondants.</p><div id="agroChecklist">${items.map((it,i)=>`<label class="step" style="cursor:pointer"><input type="checkbox" data-agro-check="${i}" ${state.agro&&state.agro[i]?'checked':''} onchange="toggleAgro(${i})" style="margin-top:4px"><div class="stepmain"><strong>${it.title}</strong><p>${it.body}</p></div></label>`).join('')}</div>`)}
+${card('Points techniques à retenir',`<ul><li>Un étang de taille modérée est plus facile à surveiller qu’un grand bassin ; le document cite environ 300 m² comme taille adaptée à un étang familial, mais le choix dépend du terrain et des ressources.</li><li>La capacité de vidange facilite une récolte maîtrisée, mais ne modifie pas les ouvrages existants sans diagnostic professionnel.</li><li>Les entrées et sorties d’eau doivent être protégées par des filtres pour limiter l’entrée de poissons indésirables et la fuite des poissons élevés.</li><li>Le manuel recommande de nettoyer les filtres quotidiennement lorsqu’ils sont installés.</li><li>Éviter d’appliquer chaux, fumier, engrais ou produits de traitement sans connaître le sol, le pH, la qualité de l’eau et les besoins de l’espèce.</li></ul>`)}
+</div>
+<div class="card" style="margin-top:16px"><h3>Référence documentaire</h3><p><b>Eira Carballo, Assiah van Eer, Ton van Schie et Aldin Hilbrands.</b> <i>La pisciculture à petite échelle en eau douce</i>, Agrodok 15, Fondation Agromisa et CTA, édition 2008.</p><p class="footnote">Les informations de cette page sont tirées du document fourni, notamment des chapitres 2 à 4, 6 à 9 et des annexes. Les seuils et exemples du manuel sont des repères généraux : ils ne constituent pas des objectifs de production garantis pour les étangs d’Ahoué.</p></div>`;
+}
+
+function samplingPage(){let e=ed('samples');
+let fields=field('Date','date','date',dv(e,'date',dateNow()))+field('Étang','pond','select',dv(e,'pond','A'),pondOptions())+field('Méthode','method','select',dv(e,'method','Filet / pêche d’échantillonnage'),[['Filet / pêche d’échantillonnage','Filet / pêche d’échantillonnage'],['Observation visuelle','Observation visuelle'],['Autre','Autre']])+field('Nombre capturé','caught','number',dv(e,'caught',''),null,'min="0" required')+field('Nombre mesuré/pesé','measured','number',dv(e,'measured',''),null,'min="0" required')+field('Poids total échantillon (g)','weight','number',e.weight||'',null,'min="0" step="0.1"')+field('Longueur typique (cm)','length','number',e.length||'',null,'min="0" step="0.1"')+field('Espèces / observations','species','text',dv(e,'species',''))+field('Notes','notes','textarea',dv(e,'notes',''));
+return `<div class="pagehead"><div><h2>Échantillonnages</h2><div class="muted">Mesure les captures pour estimer la biomasse, sans vider les bassins.</div></div></div><div class="grid two">${form('Nouvel échantillonnage',fields,'sample','Enregistrer','samples')}${card('Historique',table(['Date','Étang','Capturés','Pesés','Poids échantillon','Poids moyen','Actions'],recent(state.samples).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.pond)}</td><td>${x.caught}</td><td>${x.measured}</td><td>${x.weight?x.weight+' g':'—'}</td><td>${x.weight&&x.measured?(num(x.weight)/num(x.measured)).toFixed(1)+' g':'—'}</td><td style="white-space:nowrap">${rowActions('samples',x.id)}</td></tr>`)))}</div><p class="footnote">Les captures au filet ne suffisent pas à déterminer précisément l’effectif total. Utilise plusieurs passages comparables et demande conseil à un technicien local si possible. Le poids moyen obtenu alimente automatiquement le <a href="#" onclick="go('plan');return false">plan d’alimentation</a>.</p>`}
+function feedingPage(){let e=ed('feedings'),fp=feedPrefill||{};feedPrefill=null;let s=isEd('feedings')?e:fp;
+let fields=field('Date','date','date',dv(s,'date',dateNow()))+field('Étang','pond','select',dv(s,'pond','A'),pondOptions())+field('Repas','meal','select',dv(s,'meal','Matin'),[['Matin','Matin'],['Midi / après-midi','Midi / après-midi'],['Soir','Soir'],['Journée complète','Journée complète']])+field('Type d’aliment','type','select',dv(s,'type','Granulés piscicoles de grossissement'),[['Granulés piscicoles de grossissement','Granulés piscicoles de grossissement'],['Aliment flottant','Aliment flottant'],['Aliment coulant','Aliment coulant'],['Aliment local (son, tourteau…)','Aliment local (son, tourteau…)'],['Autre','Autre']])+field('Quantité distribuée (kg)','kg','number',dv(s,'kg',''),null,'min="0.01" step="0.01" required')+field('Coût de cette distribution (FCFA)','cost','number',dv(s,'cost','0'),null,'min="0" step="1"')+field('Consommation','consumption','select',dv(s,'consumption','Tout consommé'),[['Tout consommé','Tout consommé'],['Partiellement consommé','Partiellement consommé'],['Refus observés','Refus observés']])+field('Notes','notes','textarea',dv(s,'notes',''));
+return `<div class="pagehead"><div><h2>Alimentation</h2><div class="muted">Enregistre chaque distribution et observe les refus.</div></div><button class="btn soft" onclick="go('plan')">∑ Plan d’alimentation</button></div><div class="grid two">${form('Enregistrer une distribution',fields,'feeding','Enregistrer','feedings')}${card('Bilan alimentation',`<div class="statvalue">${sum(state.feedings,'kg').toFixed(2)} kg</div><div class="muted small">Quantité totale enregistrée</div><div class="statvalue" style="margin-top:20px">${money(sum(state.feedings,'cost'))}</div><div class="muted small">Coût des distributions enregistrées</div><div class="sectiontitle">Historique</div>${table(['Date','Étang','Repas','Quantité','Coût','Consommation','Actions'],recent(state.feedings).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.pond)}</td><td>${esc(x.meal||'—')}</td><td>${x.kg} kg</td><td>${money(x.cost)}</td><td>${esc(x.consumption)}</td><td style="white-space:nowrap">${rowActions('feedings',x.id)}</td></tr>`))}`)}</div><div class="alert">Ne fixe pas une ration uniquement sur la longueur. Estime d’abord la biomasse et identifie les espèces dominantes. Retire ou réduis l’aliment si des refus persistent.</div><div class="alert">Si tu saisis un coût ici, une dépense « Alimentation » est créée automatiquement : ne saisis pas le même achat une seconde fois dans « Dépenses ».</div>`}
+function waterPage(){let e=ed('water');
+let fields=field('Date','date','date',dv(e,'date',dateNow()))+field('Étang','pond','select',dv(e,'pond','A'),pondOptions())+field('Température (°C)','temp','number',e.temp||'',null,'step="0.1"')+field('pH','ph','number',e.ph||'',null,'min="0" max="14" step="0.1"')+field('Oxygène dissous (mg/L)','oxygen','number',e.oxygen||'',null,'min="0" step="0.1"')+field('Aspect / odeur','appearance','select',dv(e,'appearance','Normal'),[['Normal','Normal'],['Eau très trouble','Eau très trouble'],['Mauvaise odeur','Mauvaise odeur'],['Poissons en surface','Poissons en surface'],['Mortalité observée','Mortalité observée']])+field('Notes / action','notes','textarea',dv(e,'notes',''));
+let warns=state.ponds.flatMap(p=>waterWarn(latestWater(p.id)));
+return `<div class="pagehead"><div><h2>Qualité de l’eau</h2><div class="muted">Saisis les mesures disponibles et consigne les observations.</div></div></div>${warns.map(w=>`<div class="alert urgent">${esc(w)}</div>`).join('')}<div class="grid two">${form('Nouvelle mesure',fields,'water','Enregistrer','water')}${card('Mesures récentes',table(['Date','Étang','Temp.','pH','O₂','Observation','Actions'],recent(state.water).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.pond)}</td><td>${x.temp||'—'}</td><td>${x.ph||'—'}</td><td>${x.oxygen||'—'}</td><td>${esc(x.appearance)}</td><td style="white-space:nowrap">${rowActions('water',x.id)}</td></tr>`)))}</div><div class="alert">Si les poissons pipent l’air en surface, surtout tôt le matin, arrête temporairement l’alimentation et cherche rapidement à augmenter l’oxygénation/renouveler l’eau de façon sûre. Demande conseil à un technicien. Les seuils doivent être adaptés aux espèces.</div>`}
+function mortalityPage(){let e=ed('mortalities');
+let fields=field('Date','date','date',dv(e,'date',dateNow()))+field('Étang','pond','select',dv(e,'pond','A'),pondOptions())+field('Nombre de poissons morts','count','number',dv(e,'count',''),null,'min="1" step="1" required')+field('Espèce (si connue)','species','text',dv(e,'species','Inconnue'))+field('Cause présumée','cause','select',dv(e,'cause','Inconnue'),[['Inconnue','Inconnue'],['Manque d’oxygène suspecté','Manque d’oxygène suspecté'],['Maladie / lésions suspectées','Maladie / lésions suspectées'],['Problème d’eau suspecté','Problème d’eau suspecté'],['Prédation','Prédation'],['Autre','Autre']])+field('Action prise','action','textarea',dv(e,'action',''));
+return `<div class="pagehead"><div><h2>Mortalités</h2><div class="muted">Enregistre les pertes et les mesures prises.</div></div></div><div class="grid two">${form('Déclarer une mortalité',fields,'mortality','Enregistrer','mortalities')}${card('Historique des pertes',table(['Date','Étang','Nombre','Cause présumée','Action','Actions'],recent(state.mortalities).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.pond)}</td><td>${x.count}</td><td>${esc(x.cause)}</td><td>${esc(x.action||'—')}</td><td style="white-space:nowrap">${rowActions('mortalities',x.id)}</td></tr>`)))}</div><div class="alert">En cas de mortalités répétées, retire les poissons morts, mesure l’eau et demande rapidement un avis technique. N’utilise pas de médicaments ou produits chimiques sans diagnostic.</div>`}
+function expensesPage(){let e=ed('expenses'),es=ed('stockItems');
+let fields=field('Date','date','date',dv(e,'date',dateNow()))+field('Catégorie','category','select',dv(e,'category','Alimentation'),[['Alimentation','Alimentation'],['Travaux / réparation','Travaux / réparation'],['Alevins','Alevins'],['Matériel','Matériel'],['Qualité de l’eau','Qualité de l’eau'],['Main-d’œuvre','Main-d’œuvre'],['Transport','Transport'],['Commercialisation','Commercialisation'],['Énergie / eau','Énergie / eau'],['Autre','Autre']])+field('Désignation','item','text',dv(e,'item',''),null,'required')+field('Quantité','quantity','number',dv(e,'quantity','1'),null,'min="0" step="0.01"')+field('Montant total (FCFA)','amount','number',dv(e,'amount',''),null,'min="0" required')+field('Fournisseur','supplier','text',dv(e,'supplier',''))+field('Note','notes','textarea',dv(e,'notes',''));
+let expTable=table(['Date','Catégorie','Désignation','Montant','Actions'],recent(state.expenses).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.category)}</td><td>${esc(x.item)}${x.feedId?' <span class="badge">via alimentation</span>':''}<div class="muted">${esc(x.supplier||'')}</div></td><td>${money(x.amount)}</td><td style="white-space:nowrap">${rowActions('expenses',x.id)}</td></tr>`));
+let stockFields=field('Article','name','text',dv(es,'name',''),null,'required')+field('Quantité','qty','number',dv(es,'qty',''),null,'min="0" step="0.01" required')+field('Unité','unit','select',dv(es,'unit','kg'),[['kg','kg'],['sac','sac'],['pièce','pièce'],['litre','litre'],['autre','autre']])+field('Seuil d’alerte','threshold','number',dv(es,'threshold','0'),null,'min="0" step="0.01"')+field('Notes','notes','text',dv(es,'notes',''));
+return `<div class="pagehead"><div><h2>Dépenses & stocks</h2><div class="muted">Suis les achats, les charges et les niveaux de stock.</div></div></div><div class="grid two">${form('Enregistrer une dépense',fields,'expense','Enregistrer','expenses')}${form('Ajouter / mettre à jour un article',stockFields,'stock','Enregistrer','stockItems')}</div><div class="grid two" style="margin-top:16px">${card('Dépenses enregistrées',`<div class="statvalue">${money(sum(state.expenses,'amount'))}</div>${expTable}`)}${card('État des stocks',table(['Article','Quantité','Seuil','État','Actions'],state.stockItems.map(x=>`<tr><td>${esc(x.name)}</td><td>${x.qty} ${esc(x.unit)}</td><td>${x.threshold} ${esc(x.unit)}</td><td>${num(x.qty)<=num(x.threshold)?'<span style="color:#a52c27">À réapprovisionner</span>':'OK'}</td><td style="white-space:nowrap">${rowActions('stockItems',x.id)}</td></tr>`)))}</div>`}
+function harvestPage(){let e=ed('harvests');
+let fields=field('Date','date','date',dv(e,'date',dateNow()))+field('Étang','pond','select',dv(e,'pond','A'),pondOptions())+field('Poids récolté (kg)','kg','number',dv(e,'kg',''),null,'min="0.01" step="0.01" required')+field('Nombre de poissons','count','number',e.count||'',null,'min="0" step="1"')+field('Méthode','method','select',dv(e,'method','Partielle'),[['Partielle','Partielle'],['Totale','Totale']])+field('Destination','destination','select',dv(e,'destination','Vente prévue'),[['Vente prévue','Vente prévue'],['Autoconsommation','Autoconsommation'],['Stockage / transformation','Stockage / transformation']])+field('Notes','notes','textarea',dv(e,'notes',''));
+return `<div class="pagehead"><div><h2>Récoltes</h2><div class="muted">Enregistre le poids récolté et la destination du lot.</div></div></div><div class="grid two">${form('Enregistrer une récolte',fields,'harvest','Enregistrer','harvests')}${card('Historique des récoltes',table(['Date','Étang','Poids','Nombre','Méthode','Destination','Actions'],recent(state.harvests).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.pond)}</td><td>${x.kg} kg</td><td>${x.count||'—'}</td><td>${esc(x.method)}</td><td>${esc(x.destination)}</td><td style="white-space:nowrap">${rowActions('harvests',x.id)}</td></tr>`)))}</div><p class="footnote">Une récolte ne réduit pas automatiquement l’effectif estimé de l’étang : mets à jour cet effectif dans la fiche de l’étang (et dans le plan d’alimentation) après comptage ou estimation.</p>`}
+function syncPay(el){let s=state.sales.find(x=>x.id===el.value);if(s&&el.form&&el.form.amount)el.form.amount.value=Math.max(0,Math.round(resteOf(s)))}
+function payFor(id){payPrefill=id;editing=null;render();window.scrollTo({top:0,behavior:'smooth'})}
+function delPay(sid,pid){if(!confirm('Supprimer ce paiement ?'))return;let s=state.sales.find(x=>x.id===sid);if(s)s.payments=s.payments.filter(p=>p.id!==pid);save();toast('Paiement supprimé')}
+function salesPage(){let es=ed('sales'),ec=ed('clients'),editS=isEd('sales');
+let cOpts=[['Vente directe','Vente directe'],...state.clients.map(c=>[c.name,c.name])];if(editS&&!cOpts.some(o=>o[0]===es.client))cOpts.push([es.client,es.client]);
+let cf=field('Nom du client','name','text',dv(ec,'name',''),null,'required')+field('Téléphone (facultatif)','phone','tel',dv(ec,'phone',''))+field('Localité','location','text',dv(ec,'location','Ahoué'))+field('Notes','notes','text',dv(ec,'notes',''));
+let sf=field('Date','date','date',dv(es,'date',dateNow()))+field('Client','client','select',dv(es,'client','Vente directe'),cOpts)+field('Produit','product','select',dv(es,'product','Poisson frais'),[['Poisson frais','Poisson frais'],['Poisson vivant','Poisson vivant'],['Poisson transformé','Poisson transformé'],['Autre','Autre']])+field('Quantité vendue (kg)','kg','number',dv(es,'kg',''),null,'min="0.01" step="0.01" required')+field('Prix de vente (FCFA/kg)','price','number',dv(es,'price',''),null,'min="1" required')+(editS?'':field('Montant encaissé (FCFA) — vide = payé en totalité','paid','number','',null,'min="0"'))+field('Notes','notes','textarea',dv(es,'notes',''));
+let open=state.sales.filter(x=>resteOf(x)>0.5);
+let sel=payPrefill&&open.some(x=>x.id===payPrefill)?payPrefill:(open[0]&&open[0].id);payPrefill=null;
+let pf=open.length?form('Enregistrer un paiement reçu',field('Vente à solder','sale','select',sel,open.map(x=>[x.id,x.date+' — '+x.client+' — reste '+money(resteOf(x))]),'onchange="syncPay(this)"')+field('Date du paiement','date','date',dateNow())+field('Montant reçu (FCFA)','amount','number',Math.round(resteOf(open.find(x=>x.id===sel))),null,'min="1" step="1" required')+field('Mode de paiement','method','select','Espèces',[['Espèces','Espèces'],['Mobile money','Mobile money'],['Virement','Virement'],['Autre','Autre']])+field('Note','notes','text',''),'payment','Enregistrer le paiement'):card('Paiements des créances',empty('Aucune créance en attente : toutes les ventes sont soldées.'));
+let status=x=>{let r=resteOf(x);return r<=0.5?'<span class="badge ok">Soldée</span>':paidOf(x)>0?'<span class="badge todo">Partielle</span>':'<span class="badge late">Impayée</span>'};
+let pays=[];state.sales.forEach(x=>(x.payments||[]).forEach(p=>pays.push({...p,sid:x.id,client:x.client})));
+return `<div class="pagehead"><div><h2>Ventes & clients</h2><div class="muted">Enregistre les ventes, les prix et les paiements reçus (y compris les paiements différés).</div></div></div><div class="grid two">${form('Enregistrer une vente',sf,'sale','Enregistrer','sales')}${form('Ajouter un client',cf,'client','Enregistrer','clients')}</div><div class="grid two" style="margin-top:16px">${pf}${card('Paiements reçus',table(['Date','Client','Montant','Mode','Action'],recent(pays).map(p=>`<tr><td>${esc(p.date)}</td><td>${esc(p.client)}</td><td>${money(p.amount)}</td><td>${esc(p.method||'—')}<div class="muted">${esc(p.note||'')}</div></td><td><button class="btn sm danger" onclick="delPay('${p.sid}','${p.id}')">Supprimer</button></td></tr>`)))}</div><div class="grid two" style="margin-top:16px">${card('Ventes enregistrées',`<div class="muted small" style="margin-bottom:8px">Reste à encaisser : <b>${money(receivables())}</b></div>`+table(['Date','Client','Quantité','Prix/kg','Total','Encaissé','Reste','Statut','Actions'],recent(state.sales).map(x=>`<tr><td>${esc(x.date)}</td><td>${esc(x.client)}</td><td>${x.kg} kg</td><td>${money(x.price)}</td><td>${money(x.total)}</td><td>${money(paidOf(x))}</td><td>${money(Math.max(0,resteOf(x)))}</td><td>${status(x)}</td><td style="white-space:nowrap">${resteOf(x)>0.5?`<button class="btn sm soft" onclick="payFor('${x.id}')">Encaisser</button> `:''}${rowActions('sales',x.id)}</td></tr>`)))}${card('Carnet clients',table(['Nom','Téléphone','Localité','Notes','Actions'],state.clients.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.phone||'—')}</td><td>${esc(c.location||'—')}</td><td>${esc(c.notes||'—')}</td><td style="white-space:nowrap">${rowActions('clients',c.id)}</td></tr>`)))}</div>`}
+function reportsPage(){let ex=sum(state.expenses,'amount'),re=sum(state.sales,'total'),paid=totalPaid(),receivable=receivables(),budget=num(state.config.budget),bal=cashBalance();
+let categories={};state.expenses.forEach(x=>categories[x.category]=(categories[x.category]||0)+num(x.amount));
+let bars=Object.entries(categories).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="barrow"><span>${esc(k)}</span><div class="bar"><span style="width:${Math.min(100,v/Math.max(1,...Object.values(categories))*100)}%"></span></div><strong>${money(v)}</strong></div>`).join('');
+let byClient={};state.sales.forEach(x=>{let r=resteOf(x);if(r>0.5)byClient[x.client]=(byClient[x.client]||0)+r});
+let recRows=Object.entries(byClient).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="money">${money(v)}</td></tr>`);
+return `<div class="pagehead"><div><h2>Trésorerie & rapports</h2><div class="muted">Synthèse financière à partir des opérations enregistrées.</div></div><div class="actions"><button class="btn primary" onclick="exportCSV()">Exporter CSV</button><button class="btn" onclick="print()">Imprimer le rapport</button></div></div><div class="grid stats">${stat('Budget initial',money(budget),'Paramètre du projet')}${stat('Dépenses',money(ex),'Charges enregistrées')}${stat('Ventes facturées',money(re),'Chiffre d’affaires enregistré')}${stat('Encaissements',money(paid),'Paiements réellement reçus')}</div><div class="grid two">${card('Trésorerie simplifiée',`<div class="statlabel">Budget initial + encaissements − dépenses</div><div class="statvalue">${money(bal)}</div><div class="sectiontitle">Créances clients</div><div class="statvalue">${money(receivable)}</div><div class="muted small">Montants facturés mais non encore encaissés.</div><div class="alert" style="margin-top:14px">Cette trésorerie ne comprend que les opérations saisies dans l’application. Elle n’inclut pas les dépenses personnelles, les dettes non enregistrées ni la valeur des poissons encore dans les étangs.</div>`)}${card('Dépenses par catégorie',bars||empty('Les catégories apparaîtront après la saisie de dépenses.'))}</div><div style="margin-top:16px">${card('Créances par client',recRows.length?table(['Client','Reste à encaisser'],recRows)+'<button class="btn soft" style="margin-top:10px" onclick="go(\'sales\')">Enregistrer un paiement →</button>':empty('Aucune créance en attente.'))}</div><div class="card" style="margin-top:16px"><h3>Indicateurs de production</h3><div class="grid three"><div><div class="statlabel">Aliment distribué</div><div class="statvalue">${sum(state.feedings,'kg').toFixed(2)} kg</div></div><div><div class="statlabel">Récoltes enregistrées</div><div class="statvalue">${sum(state.harvests,'kg').toFixed(2)} kg</div></div><div><div class="statlabel">Mortalités enregistrées</div><div class="statvalue">${sum(state.mortalities,'count')}</div></div></div></div><p class="footnote">Le bénéfice net n’est pas calculé comme ventes moins toutes les dépenses si les ventes et les dépenses concernent des périodes ou lots différents. Utilise le rapport comme tableau de bord de gestion.</p>`}
+function settingsPage(){let c=state.config;return `<div class="pagehead"><div><h2>Paramètres & sauvegarde</h2><div class="muted">Tes données sont conservées dans le stockage local du navigateur.</div></div></div><div class="grid two">${form('Paramètres du projet',field('Nom du projet','name','text',c.name)+field('Responsable','owner','text',c.owner)+field('Budget initial (FCFA)','budget','number',c.budget,null,'min="0" required')+field('Date de démarrage','startDate','date',c.startDate)+field('Notes','notes','textarea',c.notes),'config')}${card('Sauvegarde et restauration',`<p class="muted small"><b>Dernière sauvegarde JSON :</b> ${lastBackupText()}.<br>Exportez un fichier JSON pour conserver une copie de toutes les données. Importez-le pour restaurer les données sur ce navigateur ou un autre appareil.</p><div class="actions"><button class="btn primary" onclick="backup()">Télécharger la sauvegarde JSON</button><button class="btn" onclick="document.getElementById('importFile').click()">Importer une sauvegarde</button><input id="importFile" type="file" accept=".json,application/json" class="hidden" onchange="restore(event)"></div><div class="sectiontitle">Exporter les tableaux</div><button class="btn" onclick="exportCSV()">Télécharger un rapport CSV</button><div class="sectiontitle">Effacer les données</div><p class="footnote">Cette action efface les données enregistrées dans ce navigateur. Télécharge une sauvegarde avant de continuer.</p><button class="btn danger" onclick="resetData()">Réinitialiser l’application</button>`)} </div><div class="alert" style="margin-top:16px"><b>Sur iPhone :</b> ouvre le site dans Safari, touche Partager, puis « Sur l’écran d’accueil ». Ouvre ensuite l’application depuis son icône : elle fonctionne hors ligne et conserve mieux tes données. Les données restent sur ce téléphone et ne sont pas partagées avec ton ordinateur : fais une sauvegarde JSON chaque semaine, et utilise « Importer une sauvegarde » pour passer d’un appareil à l’autre.</div>`}
+/* ===== Journal du jour : suivi et actions quotidiennes ===== */
+const OBS={
+ behavior:['Normal : poissons calmes, appétit normal','Poissons en surface / pipent l’air','Poissons apathiques ou nageant peu','Appétit faible','Lésions ou comportement anormal visible'],
+ level:['Normal','En baisse','Trop haut / risque de débordement'],
+ weather:['Ensoleillé','Nuageux','Pluie','Forte pluie'],
+ color:['Verte claire (normale)','Verte très foncée','Brune / très trouble','Autre']
+};
+const DAILY=[
+ {id:'obs',when:'am',title:'Observer les poissons et l’eau (tôt le matin)',desc:'Poissons calmes ? Aucun poisson qui pipe l’air en surface ? Couleur et odeur de l’eau, niveau d’eau. Remplis l’observation en bas de cette carte.',auto:(d,p)=>!!(((state.daily[d]||{}).obs||{})[p])},
+ {id:'water',when:'am',title:'Mesurer l’eau : température, pH (et oxygène si possible)',desc:'À la même heure chaque jour, de préférence tôt le matin quand l’oxygène est le plus bas.',auto:(d,p)=>state.water.some(x=>x.date===d&&x.pond===p),go:'water'},
+ {id:'dead',when:'am',title:'Retirer les poissons morts et les enregistrer',desc:'Coche « fait » s’il n’y en a aucun. Sinon, enregistre le nombre et la cause présumée.',auto:(d,p)=>state.mortalities.some(x=>x.date===d&&x.pond===p),go:'mortality',goLabel:'Déclarer'},
+ {id:'filters',when:'am',title:'Nettoyer les grilles / filtres d’entrée et de sortie',desc:'Le guide recommande un nettoyage quotidien quand des filtres sont installés. Coche « fait » si sans objet.'},
+ {id:'feed',when:'day',title:'Distribuer la ration du jour',desc:p=>plannedFeedText(p)+'. Répartis en plusieurs repas, à heures fixes, et enregistre chaque distribution.',auto:(d,p)=>state.feedings.some(x=>x.date===d&&x.pond===p),go:'plan',goLabel:'Voir la ration'},
+ {id:'refus',when:'pm',title:'Contrôler les refus d’aliment',desc:'Reste-t-il de l’aliment 20 à 30 min après le repas ? Si oui, réduis la ration suivante et note « refus observés ».'},
+ {id:'ronde',when:'pm',title:'Ronde du soir : niveau d’eau, digues, prédateurs / vols',desc:'Repère fuites, trous, traces de prédateurs, filets ou grilles abîmés.'},
+ {id:'dikes',when:'reg',every:7,title:'Inspecter les digues et le trop-plein, couper l’herbe',desc:'Une fois par semaine : érosion, fuites, végétation, ouvrages dégagés.'},
+ {id:'sample',when:'reg',every:14,title:'Échantillonnage : peser un échantillon de poissons',desc:'Environ toutes les 2 semaines (repère indicatif) pour suivre la croissance et ajuster la ration.',auto:(d,p)=>state.samples.some(x=>x.date===d&&x.pond===p),last:(d,p)=>state.samples.filter(x=>x.pond===p&&x.date<=d).map(x=>x.date).sort().pop()||null,go:'sampling'},
+ {id:'money',global:true,when:'pm',title:'Noter les dépenses et les ventes du jour',desc:'Coche « fait » s’il n’y avait rien à noter.',auto:(d)=>state.expenses.some(x=>x.date===d)||state.sales.some(x=>x.date===d),go:'expenses'},
+ {id:'stock',global:true,when:'reg',every:7,title:'Vérifier le stock d’aliment et de matériel',desc:'Compare au stock enregistré et prévois le réapprovisionnement avant la rupture.',go:'expenses',goLabel:'Stocks'},
+ {id:'backup',global:true,when:'reg',every:7,title:'Télécharger la sauvegarde JSON',desc:'Une fois par semaine, pour ne pas perdre tes données si le navigateur est vidé.',auto:(d)=>!!state.lastBackup&&state.lastBackup.slice(0,10)===d,last:()=>state.lastBackup?state.lastBackup.slice(0,10):null,go:'settings',goLabel:'Sauvegarder'}
+];
+function lastDone(key,upTo){let ds=Object.keys(state.daily).filter(d=>d<=upTo&&((state.daily[d]||{}).checks||{})[key]).sort();return ds.length?ds[ds.length-1]:null}
+function taskState(t,date,pond){
+ let key=pond+'|'+t.id,manual=!!(((state.daily[date]||{}).checks||{})[key]);
+ let auto=t.auto?!!t.auto(date,pond):false,done=manual||auto;
+ let lasts=[lastDone(key,date)];if(t.last)lasts.push(t.last(date,pond));
+ let last=lasts.filter(Boolean).sort().pop()||null,age=last?daysBetween(last,date):null;
+ let due=true;if(t.every&&!done)due=last===null||age>=t.every;
+ return {key,manual,auto,done,last,age,due}}
+function taskRow(t,pond,date){let st=taskState(t,date,pond),counted=!t.every||st.due||st.done,badge;
+ if(st.done)badge=`<span class="badge ok">${st.auto&&!st.manual?'Fait (auto)':'Fait'}</span>`;
+ else if(t.every){badge=st.due?(st.last?`<span class="badge late">En retard : fait il y a ${st.age} j</span>`:'<span class="badge todo">Jamais fait</span>'):`<span class="badge">Prochain dans ${t.every-st.age} j</span>`}
+ else badge='<span class="badge todo">À faire</span>';
+ let desc=typeof t.desc==='function'?t.desc(pond):t.desc;
+ let btn=t.go&&!st.done?`<button class="btn sm soft" onclick="go('${t.go}')">${t.goLabel||'Saisir'} →</button>`:'';
+ return {counted,done:st.done,html:`<div class="step"><button class="check ${st.done?'done':''}" ${st.auto?'disabled title="Validé automatiquement par ta saisie"':`onclick="toggleCheck('${st.key}')"`}>${st.done?'✓':''}</button><div class="stepmain"><strong>${t.title}</strong><p>${esc(desc)}</p></div><div class="taskside">${badge}${btn}</div></div>`}}
+function toggleCheck(key){let d=state.daily[dailyDate]=state.daily[dailyDate]||{checks:{},obs:{}};d.checks=d.checks||{};if(d.checks[key])delete d.checks[key];else d.checks[key]=true;save()}
+function setDaily(v){if(v){dailyDate=v;render()}}
+function obsForm(p,date,o){return `<div class="sectiontitle">Observation du jour — ${esc(p.name)}</div><form data-form="obs" data-pond="${esc(p.id)}" data-date="${date}"><div class="formgrid">${field('Comportement des poissons','behavior','select',o.behavior||OBS.behavior[0],OBS.behavior.map(v=>[v,v]))}${field('Niveau d’eau','level','select',o.level||OBS.level[0],OBS.level.map(v=>[v,v]))}${field('Couleur de l’eau','color','select',o.color||OBS.color[0],OBS.color.map(v=>[v,v]))}${field('Météo','weather','select',o.weather||OBS.weather[0],OBS.weather.map(v=>[v,v]))}<div class="field full"><label>Notes / actions menées</label><textarea name="notes">${esc(o.notes||'')}</textarea></div></div><button class="btn primary" style="margin-top:12px" type="submit">Enregistrer l’observation</button></form>`}
+function latestWater(pond){let w=state.water.filter(x=>x.pond===pond);return recent(w)[0]||null}
+function waterWarn(x){let a=[];if(!x)return a;let p='Étang '+x.pond+' ('+x.date+') : ';
+ if(x.temp>0&&(x.temp<20||x.temp>30))a.push(p+'température '+x.temp+' °C hors de 20–30 °C (repère du guide) : réduire la ration et observer l’appétit.');
+ if(x.ph>0&&(x.ph<6.7||x.ph>8.6))a.push(p+'pH '+x.ph+' hors de 6,7–8,6 (repère du guide) : ne rien ajouter à l’eau sans avis technique.');
+ if(x.oxygen>0&&x.oxygen<3)a.push(p+'oxygène '+x.oxygen+' mg/L très bas (repère général < 3 mg/L) : suspendre l’aliment, renouveler l’eau de façon sûre.');
+ if((x.appearance||'').includes('surface'))a.push(p+'poissons en surface : suspendre l’aliment et agir sur l’oxygène.');
+ return a}
+function suspendFeed(pond){let t=dateNow(),y=new Date(Date.now()-86400000).toISOString().slice(0,10);
+ for(const d of [t,y]){let o=((state.daily[d]||{}).obs||{})[pond];if(o&&(o.behavior||'').includes('surface'))return 'Observation « poissons en surface » ('+d+')'}
+ let w=state.water.find(x=>x.pond===pond&&x.date>=y&&((x.appearance||'').includes('surface')||(x.oxygen>0&&x.oxygen<3)));
+ return w?'Mesure d’eau alarmante ('+w.date+')':''}
+function dailyAlerts(date){let a=[],prev=new Date(new Date(date+'T00:00:00Z')-86400000).toISOString().slice(0,10);
+ state.ponds.forEach(p=>{
+  for(const d of [date,prev]){let o=((state.daily[d]||{}).obs||{})[p.id];if(!o)continue;
+   if((o.behavior||'').includes('surface'))a.push({urgent:true,text:`${p.name} (${d}) : poissons en surface — suspendre l’aliment, renouveler l’eau de façon sûre, demander un avis technique.`});
+   if((o.level||'').includes('baisse'))a.push({urgent:false,text:`${p.name} (${d}) : niveau d’eau en baisse — chercher une fuite (digues, vidange).`});
+   if(d===date&&(o.weather||'')==='Forte pluie')a.push({urgent:false,text:`${p.name} : forte pluie — vérifier le trop-plein et les digues.`});}
+  let lw=latestWater(p.id);if(lw&&daysBetween(lw.date,date)>=0&&daysBetween(lw.date,date)<=3)waterWarn(lw).forEach(t=>a.push({urgent:true,text:t}));
+  let ls=state.samples.filter(x=>x.pond===p.id).map(x=>x.date).sort().pop();
+  if(ls&&daysBetween(ls,date)>14)a.push({urgent:false,text:`${p.name} : dernier échantillonnage il y a ${daysBetween(ls,date)} jours — refaire une pesée (environ toutes les 2 semaines).`});});
+ state.stockItems.filter(x=>num(x.qty)<=num(x.threshold)).forEach(x=>a.push({urgent:false,text:`Stock à réapprovisionner : ${x.name} (${x.qty} ${x.unit}).`}));
+ let hasData=['samples','feedings','water','mortalities','expenses','harvests','sales'].some(k=>state[k].length);
+ if(hasData){let lb=state.lastBackup?daysBetween(state.lastBackup.slice(0,10),date):null;if(lb===null)a.push({urgent:false,text:'Aucune sauvegarde JSON téléchargée : fais-en une dans « Paramètres & sauvegarde ».'});else if(lb>=7)a.push({urgent:false,text:`Dernière sauvegarde JSON il y a ${lb} jours : refais-en une.`})}
+ return a}
+function pendingTasks(date){let out=[],order={am:0,day:1,pm:2,reg:3};
+ state.ponds.forEach(p=>DAILY.filter(t=>!t.global).forEach(t=>{let st=taskState(t,date,p.id);if(!st.done&&(!t.every||st.due))out.push({pond:p.id,t,st})}));
+ DAILY.filter(t=>t.global).forEach(t=>{let st=taskState(t,date,'all');if(!st.done&&(!t.every||st.due))out.push({pond:'all',t,st})});
+ return out.sort((a,b)=>order[a.t.when]-order[b.t.when])}
+function plannedFeedText(id){let gs=state.groups.filter(g=>g.pond===id);if(!gs.length)return 'Ration : à définir (plan d’alimentation)';
+ if(suspendFeed(id))return '⛔ Suspendre l’aliment';
+ let plans=gs.map(groupPlan).filter(x=>x.ok);if(!plans.length)return 'Ration : poids moyen à mesurer';
+ let a=plans.reduce((s,x)=>s+x.kgMin,0),b=plans.reduce((s,x)=>s+x.kgMax,0),m=Math.max(...plans.map(x=>x.meals));
+ return 'Ration prévue : '+fkg(a)+' à '+fkg(b)+' par jour • '+m+' repas'}
+function dayScore(d){let tot=0,ok=0;state.ponds.forEach(p=>DAILY.filter(t=>!t.global&&!t.every).forEach(t=>{tot++;if(taskState(t,d,p.id).done)ok++}));DAILY.filter(t=>t.global&&!t.every).forEach(t=>{tot++;if(taskState(t,d,'all').done)ok++});return [ok,tot]}
+function dailyPage(){
+ let date=dailyDate,tot=0,dn=0;
+ const WH=[['am','Matin'],['day','Dans la journée'],['pm','Soir'],['reg','Suivi régulier (hebdo / 2 semaines)']];
+ let cards=state.ponds.map(p=>{
+  let sections=WH.map(([w,lab])=>{let ts=DAILY.filter(t=>!t.global&&t.when===w);if(!ts.length)return '';
+   let rs=ts.map(t=>taskRow(t,p.id,date));rs.forEach(r=>{if(r.counted){tot++;if(r.done)dn++}});
+   return `<div class="sectiontitle">${lab}</div>`+rs.map(r=>r.html).join('')}).join('');
+  let o=(((state.daily[date]||{}).obs)||{})[p.id]||{};
+  return card(`${esc(p.name)} <span class="pill">${esc(plannedFeedText(p.id))}</span>`,sections+obsForm(p,date,o))}).join('');
+ let grs=DAILY.filter(t=>t.global).map(t=>taskRow(t,'all',date));grs.forEach(r=>{if(r.counted){tot++;if(r.done)dn++}});
+ let gcard=card('Gestion de l’exploitation',grs.map(r=>r.html).join(''));
+ let alerts=dailyAlerts(date);
+ let fed=state.feedings.filter(x=>x.date===date).reduce((a,x)=>a+num(x.kg),0);
+ let plans=state.groups.map(groupPlan).filter(x=>x.ok),pmin=plans.reduce((s,x)=>s+x.kgMin,0),pmax=plans.reduce((s,x)=>s+x.kgMax,0);
+ let nW=state.water.filter(x=>x.date===date).length,nM=state.mortalities.filter(x=>x.date===date).reduce((a,x)=>a+num(x.count),0);
+ let days=[];for(let i=0;i<7;i++){days.push(new Date(new Date(date+'T00:00:00Z')-i*86400000).toISOString().slice(0,10))}
+ let hist=days.map(d=>{let sc=dayScore(d),f=state.feedings.filter(x=>x.date===d).reduce((a,x)=>a+num(x.kg),0),m=state.mortalities.filter(x=>x.date===d).reduce((a,x)=>a+num(x.count),0),w=state.water.filter(x=>x.date===d).length,ob=Object.keys(((state.daily[d]||{}).obs)||{}).length;
+  return `<tr><td><a href="#" onclick="setDaily('${d}');return false">${d}</a></td><td>${sc[0]}/${sc[1]}</td><td>${f?fkg(f):'—'}</td><td>${w||'—'}</td><td>${m||'—'}</td><td>${ob?ob+' étang(s)':'—'}</td></tr>`});
+ return `<div class="pagehead"><div><h2>Journal du jour</h2><div class="muted">Suivi quotidien et actions à mener, étang par étang.</div></div><div class="actions"><input type="date" value="${date}" onchange="setDaily(this.value)" style="border:1px solid #cfdcd4;border-radius:9px;padding:8px"><button class="btn soft" onclick="setDaily(dateNow())">Aujourd’hui</button></div></div>
+ ${date!==dateNow()?`<div class="alert">Tu consultes le ${esc(date)} (pas aujourd’hui). Les coches et observations s’enregistrent pour cette date.</div>`:''}
+ ${alerts.map(a=>`<div class="alert ${a.urgent?'urgent':''}">${esc(a.text)}</div>`).join('')}
+ <div class="grid stats">${stat('Actions faites',dn+' / '+tot,`<div class="progress" style="margin-top:6px"><span style="width:${tot?dn/tot*100:0}%"></span></div>`)}${stat('Aliment distribué',fkg(fed),plans.length?'Prévu : '+fkg(pmin)+' à '+fkg(pmax):'Définir le plan d’alimentation')}${stat('Mesures d’eau',nW,'enregistrée(s) ce jour')}${stat('Mortalités',nM,'poisson(s) ce jour')}</div>
+ <div class="grid ponds">${cards}</div>
+ <div style="margin-top:16px">${gcard}</div>
+ <div style="margin-top:16px">${card('7 derniers jours',table(['Date','Actions quotidiennes','Aliment','Mesures eau','Mortalités','Observations'],hist))}</div>
+ <p class="footnote" style="margin-top:12px">Les actions sont des repères de bonne pratique, à adapter à ton site. Les tâches « suivi régulier » apparaissent comme à faire quand leur délai est dépassé. Les cases validées « (auto) » se cochent toutes seules quand tu enregistres la mesure correspondante.</p>`}
+/* ===== Plan d’alimentation : type et quantité d’aliment par espèce ===== */
+const SPECIES={
+ tilapia:{name:'Tilapia du Nil',latin:'Oreochromis niloticus',note:'Omnivore : accepte l’aliment complet et profite du plancton de l’étang. Un granulé flottant permet de voir la consommation.',classes:[
+  {max:5,label:'< 5 g',rate:[6,10],prot:'35–40 %',feed:'Poudre ou miette 0,5–1 mm',meals:3},
+  {max:25,label:'5–25 g',rate:[4,6],prot:'32–35 %',feed:'Granulé 1,5–2 mm',meals:3},
+  {max:100,label:'25–100 g',rate:[3,4],prot:'30–32 %',feed:'Granulé 2–3 mm',meals:2},
+  {max:250,label:'100–250 g',rate:[2,3],prot:'28–30 %',feed:'Granulé 3–4 mm',meals:2},
+  {max:1e9,label:'> 250 g',rate:[1.5,2],prot:'25–28 %',feed:'Granulé 4–5 mm',meals:2}]},
+ clarias:{name:'Silure africain',latin:'Clarias gariepinus',note:'Surtout actif la nuit : donne la plus grosse part de la ration en fin d’après-midi / soir. Besoin en protéines plus élevé que le tilapia.',classes:[
+  {max:5,label:'< 5 g',rate:[8,10],prot:'45–50 %',feed:'Poudre ou miette 0,5–1 mm',meals:3},
+  {max:50,label:'5–50 g',rate:[4,6],prot:'40–45 %',feed:'Granulé 1,5–2,5 mm',meals:3},
+  {max:200,label:'50–200 g',rate:[2.5,3.5],prot:'38–42 %',feed:'Granulé 3–4 mm',meals:2},
+  {max:1e9,label:'> 200 g',rate:[1.5,2.5],prot:'35–40 %',feed:'Granulé 4–6 mm',meals:2}]},
+ carp:{name:'Carpe commune',latin:'Cyprinus carpio',note:'Omnivore qui fouille le fond : elle tire parti des aliments naturels de l’étang. Un granulé coulant convient.',classes:[
+  {max:10,label:'< 10 g',rate:[5,8],prot:'35–40 %',feed:'Miette / granulé fin 1–2 mm',meals:3},
+  {max:100,label:'10–100 g',rate:[3,5],prot:'30–35 %',feed:'Granulé 2–3 mm',meals:2},
+  {max:500,label:'100–500 g',rate:[2,3],prot:'28–30 %',feed:'Granulé 3–4 mm',meals:2},
+  {max:1e9,label:'> 500 g',rate:[1,2],prot:'25–28 %',feed:'Granulé 4–6 mm',meals:2}]},
+ unknown:{name:'Espèce non identifiée / sauvage mixte',latin:'',note:'Tant que l’espèce n’est pas identifiée, reste prudent : bas de fourchette et observation de la consommation.',classes:[
+  {max:1e9,label:'Tous poids',rate:[1,2],prot:'≈ 30 %',feed:'Granulé fin, de taille adaptée à la bouche des poissons',meals:2}]}
+};
+function lastSampleAvg(pond){let s=state.samples.filter(x=>x.pond===pond&&num(x.weight)>0&&num(x.measured)>0);let x=recent(s)[0];return x?{avg:num(x.weight)/num(x.measured),date:x.date}:null}
+function groupPlan(g){
+ let sp=SPECIES[g.species]||SPECIES.unknown,ls=lastSampleAvg(g.pond),manual=num(g.avgWeight)>0;
+ let w=manual?num(g.avgWeight):(ls?ls.avg:0),n=num(g.count);
+ let r={g,sp,w,n,src:manual?'poids saisi':(ls?'échantillonnage du '+ls.date:'—'),ok:false,warn:[]};
+ if(!(w>0)){r.warn.push('Poids moyen inconnu : fais d’abord un échantillonnage (module Échantillonnages) ou saisis le poids moyen.');return r}
+ if(!(n>0)){r.warn.push('Effectif inconnu : estime le nombre de poissons de ce groupe.');return r}
+ if(!manual&&ls&&daysBetween(ls.date,dateNow())>21)r.warn.push('Le poids moyen date de plus de 3 semaines : les poissons ont grandi, refais un échantillonnage.');
+ let cls=sp.classes.find(c=>w<=c.max)||sp.classes[sp.classes.length-1],bio=n*w/1000;
+ Object.assign(r,{ok:true,cls,bio,kgMin:bio*cls.rate[0]/100,kgMax:bio*cls.rate[1]/100,meals:cls.meals});
+ if(!SPECIES[g.species]||g.species==='unknown')r.warn.push('Espèce non identifiée : ration prudente (1–2 %). Identifie l’espèce avant d’aller plus loin.');
+ r.suspend=suspendFeed(g.pond);
+ let lw=latestWater(g.pond);if(lw&&daysBetween(lw.date,dateNow())<=3&&lw.temp>0&&(lw.temp<20||lw.temp>30))r.warn.push('Température '+lw.temp+' °C hors de 20–30 °C (repère du guide) : reste en bas de fourchette ou réduis la ration.');
+ let lf=recent(state.feedings.filter(x=>x.pond===g.pond))[0];if(lf&&lf.consumption==='Refus observés'&&daysBetween(lf.date,dateNow())<=2)r.warn.push('Refus observés lors de la dernière distribution : reste en bas de fourchette ou réduis de 20 à 30 %.');
+ return r}
+function goFeed(pond,kg){feedPrefill={pond,kg:Math.round(kg*1000)/1000,meal:'Matin'};editing=null;go('feeding')}
+function groupCard(r){let g=r.g,p=state.ponds.find(x=>x.id===g.pond),price=num(state.config.feedPrice);
+ let head=`<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px"><div><h4>${esc(p?p.name:g.pond)} — ${esc(r.sp.name)}</h4><div class="mini">${r.sp.latin?'<i>'+esc(r.sp.latin)+'</i> • ':''}${g.notes?esc(g.notes):''}</div></div><div class="actions">${rowActions('groups',g.id)}</div></div>`;
+ let warn=r.warn.map(w=>`<div class="alert">${esc(w)}</div>`).join('');
+ if(!r.ok)return `<div class="planres">${head}${warn}</div>`;
+ let sus=r.suspend?`<div class="alert urgent">⛔ ${esc(r.suspend)} : suspends l’aliment aujourd’hui, améliore l’oxygène et demande un avis technique avant de reprendre.</div>`:'';
+ let cost=price>0?`${money(r.kgMin*price)} à ${money(r.kgMax*price)}`:'Saisis le prix du kg';
+ return `<div class="planres">${head}${sus}${warn}<div class="pondmetrics wide"><div><strong>${r.n}</strong><span>Effectif estimé</span></div><div><strong>${fnum(r.w,r.w<10?1:0)} g</strong><span>Poids moyen (${esc(r.src)})</span></div><div><strong>${fkg(r.bio)}</strong><span>Biomasse estimée</span></div><div><strong>${r.cls.rate[0]}–${r.cls.rate[1]} %</strong><span>Taux du poids / jour (classe ${esc(r.cls.label)})</span></div><div><strong>${fkg(r.kgMin)} à ${fkg(r.kgMax)}</strong><span>Aliment par jour (groupe)</span></div><div><strong>${fnum(r.w*r.cls.rate[0]/100)}–${fnum(r.w*r.cls.rate[1]/100)} g</strong><span>Par poisson et par jour</span></div><div><strong>${r.meals} repas</strong><span>≈ ${fkg(r.kgMin/r.meals)} par repas (départ)</span></div><div><strong>${esc(r.cls.feed)}</strong><span>Type d’aliment • protéines ${esc(r.cls.prot)}</span></div><div><strong>${cost}</strong><span>Coût par jour</span></div></div><p class="footnote">Commence au bas de la fourchette ; monte vers le haut seulement si tout est consommé en 15 à 20 minutes, sans refus et avec une eau normale. ${esc(r.sp.note)}</p><button class="btn sm soft" onclick="goFeed('${esc(g.pond)}',${(r.kgMin/r.meals).toFixed(3)})">Enregistrer un repas →</button></div>`}
+function planPage(){let e=ed('groups');
+ let spOpts=Object.entries(SPECIES).map(([k,v])=>[k,v.name+(v.latin?' ('+v.latin+')':'')]);
+ let fields=field('Étang','pond','select',dv(e,'pond','A'),pondOptions())+field('Espèce','species','select',dv(e,'species','unknown'),spOpts)+field('Effectif estimé (nombre de poissons)','count','number',dv(e,'count',''),null,'min="0" step="1" required')+field('Poids moyen (g) — vide = dernier échantillonnage','avgWeight','number',e.avgWeight||'',null,'min="0" step="0.1"')+`<div class="field full"><label>Notes</label><textarea name="notes">${esc(dv(e,'notes',''))}</textarea></div>`;
+ let hints=state.ponds.map(p=>{let ls=lastSampleAvg(p.id);return `${esc(p.name)} : ${ls?'poids moyen échantillonné '+fnum(ls.avg)+' g ('+ls.date+')':'aucun échantillonnage'}`}).join(' • ');
+ let plans=state.groups.map(groupPlan);
+ let stockKg=state.stockItems.filter(x=>/aliment|granul/i.test(x.name)&&x.unit==='kg').reduce((a,x)=>a+num(x.qty),0);
+ let totMin=plans.filter(x=>x.ok).reduce((a,x)=>a+x.kgMin,0),totMax=plans.filter(x=>x.ok).reduce((a,x)=>a+x.kgMax,0);
+ let price=num(state.config.feedPrice);
+ let side='<div>'+card('Budget et stock d’aliment',`<p class="muted small">Total prévu pour l’exploitation : <b>${plans.some(x=>x.ok)?fkg(totMin)+' à '+fkg(totMax)+' par jour':'—'}</b></p>${price>0&&totMin>0?`<p class="muted small">Coût estimé : <b>${money(totMin*price)} à ${money(totMax*price)}</b> par jour, soit <b>${money(totMin*price*30)} à ${money(totMax*price*30)}</b> sur 30 jours.</p>`:''}${stockKg>0&&totMin>0?`<p class="muted small">Stock d’aliment enregistré : <b>${fkg(stockKg)}</b> ≈ <b>${Math.floor(stockKg/totMax)} à ${Math.floor(stockKg/totMin)} jours</b>.</p>`:'<p class="muted small">Ajoute un article « Aliment » (en kg) dans Dépenses & stocks pour voir les jours restants.</p>'}`)+'<div style="margin-top:14px"></div>'+form('Prix de l’aliment',field('Prix du kg d’aliment (FCFA)','feedPrice','number',state.config.feedPrice||'',null,'min="0" step="1"'),'feedPrice','Enregistrer')+'</div>';
+ let byPond=state.ponds.map(p=>{let ps=plans.filter(x=>x.g.pond===p.id);if(!ps.length)return '';
+  let ok=ps.filter(x=>x.ok),a=ok.reduce((s,x)=>s+x.kgMin,0),b=ok.reduce((s,x)=>s+x.kgMax,0),ha=num(p.area)/10000;
+  let cap=ok.length&&ha>0?(a/ha>40?`<div class="alert">La ration de départ (${fkg(a)}/jour) dépasse environ 40 kg par hectare et par jour pour ${esc(p.name)} (${p.area} m²) : sans aération, risque de manque d’oxygène. Repère général, à valider avec un technicien.</div>`:''):'';
+  return `<div class="sectiontitle">${esc(p.name)} — ${ok.length?'total '+fkg(a)+' à '+fkg(b)+' par jour':'ration à définir'}</div>${cap}${ps.map(groupCard).join('')}`}).join('');
+ let ref=Object.entries(SPECIES).filter(([k])=>k!=='unknown').map(([k,v])=>`<details><summary>${esc(v.name)} <span class="muted small"><i>${esc(v.latin)}</i></span></summary><p class="footnote">${esc(v.note)}</p>${table(['Poids moyen','Ration (% du poids / jour)','Protéines','Type / taille','Repas / jour'],v.classes.map(c=>`<tr><td>${esc(c.label)}</td><td>${c.rate[0]}–${c.rate[1]} %</td><td>${esc(c.prot)}</td><td>${esc(c.feed)}</td><td>${c.meals}</td></tr>`))}</details>`).join('');
+ return `<div class="pagehead"><div><h2>Plan d’alimentation</h2><div class="muted">Type et quantité d’aliment par jour, pour chaque espèce et chaque étang.</div></div></div>
+ <div class="alert">Repères indicatifs de la pratique piscicole en étang tropical (eau vers 25–30 °C). Ils ne viennent pas tous de l’Agrodok 15 : l’étiquette de ton aliment et l’avis d’un technicien local priment. Le calcul exige l’espèce, l’effectif et un poids moyen mesuré.</div>
+ <div class="grid two">${form('Poissons présents (un groupe par espèce et par étang)',fields,'group','Enregistrer','groups')}${side}</div>
+ <p class="footnote" style="margin-top:8px">${hints}. Le poids moyen échantillonné porte sur tous les poissons pêchés ; si plusieurs espèces cohabitent, saisis leur poids moyen séparément.</p>
+ ${card('Ration journalière recommandée',byPond||empty('Ajoute un groupe de poissons ci-dessus pour obtenir la ration.'),'')}
+ <div style="margin-top:16px">${card('Référence : aliment et taux par espèce et par poids',ref+'<p class="footnote">Ajuste vers le bas en dessous de 20 °C ou au-dessus de 30 °C, en cas de refus, d’eau trouble ou de poissons en surface. Les aliments locaux (son, tourteau…) ont une valeur nutritive variable : avis technique conseillé.</p>')}</div>`}
+/* ===== Programme du samedi : 12 semaines avec points de contrôle ===== */
+const WEEKS=[
+ {n:1,phase:'Phase 1 — Diagnostic',title:'Inspecter les ouvrages et mesurer l’état de l’eau',goal:'Savoir dans quel état sont réellement les deux étangs avant de dépenser quoi que ce soit.',
+  tasks:[
+   {t:'Faire le tour complet des digues de A et B : fuites, érosion, affaissement, terriers, végétation. Photographier chaque anomalie.',min:60,go:'site'},
+   {t:'Contrôler entrée d’eau, sortie / vidange, trop-plein et grilles ; noter ce qui manque ou est cassé.',min:60,go:'site'},
+   {t:'Poser un repère de niveau d’eau (piquet gradué ou marque fixe) dans chaque étang pour repérer une baisse d’un samedi à l’autre.',min:20},
+   {t:'Mesurer la profondeur réelle en 5 à 6 points par étang (perche graduée) et corriger la profondeur moyenne dans la fiche étang.',min:40,go:'ponds'},
+   {t:'Première mesure d’eau tôt le matin (température, pH, oxygène si possible) et aspect / odeur de l’eau.',min:30,go:'water'},
+   {t:'Régler l’application : budget, date du 1er samedi, puis télécharger une première sauvegarde JSON.',min:15,go:'settings'}],
+  cp:{criteria:['Aucune fuite importante ni digue qui menace de céder.','Trop-plein dégagé : l’eau excédentaire peut sortir sans abîmer les digues.','Niveau d’eau repéré dans les deux étangs.'],ifNot:'Répare ou fais évaluer le point faible avant tout achat de poissons ou d’aliment : c’est la première priorité du budget.'},
+  between:'5 minutes par jour (toi ou un voisin) : le niveau d’eau a-t-il baissé par rapport au repère ? des poissons morts ? Pas d’aliment pour l’instant.'},
+ {n:2,phase:'Phase 1 — Diagnostic',title:'Étang A : échantillonnage et identification des poissons',goal:'Connaître les espèces, le poids moyen et une première estimation du nombre de poissons de l’étang A.',
+  tasks:[
+   {t:'Mesurer l’eau de l’étang A tôt le matin, avant de pêcher.',min:20,go:'water'},
+   {t:'Préparer le matériel : filet, seaux ou bac d’eau à l’ombre, balance précise, mètre ruban, carnet, téléphone pour photos.',min:20},
+   {t:'Pêche d’échantillonnage, passage 1 : même filet, même durée. Garder les poissons dans un bac d’eau à l’ombre.',min:30},
+   {t:'Passage 2 identique, sans remettre à l’eau les poissons du passage 1. Noter C1 et C2 (nombre de poissons de chaque passage).',min:30,go:'sampling'},
+   {t:'Compter, mesurer (longueur) et peser les poissons (20 à 30 si possible, sinon tous). Noter les espèces observées.',min:60,go:'sampling'},
+   {t:'Photographier chaque espèce de profil, avec plusieurs angles, pour l’identification.',min:15},
+   {t:'Remettre doucement les poissons à l’eau et vérifier qu’il n’y a pas de mortalité due à la manipulation.',min:15,go:'mortality'}],
+  cp:{criteria:['C1, C2, nombre pesé et poids total sont saisis dans « Échantillonnages ».','Photos de chaque espèce prises.','Aucune mortalité due à la manipulation.'],ifNot:'Refais la pesée un autre samedi avec plus de précautions : eau fraîche, manipulation rapide, tôt le matin.'},
+  between:'5 minutes par jour : poissons en surface ? morts ? niveau d’eau ? Pas d’aliment.'},
+ {n:3,phase:'Phase 1 — Diagnostic',title:'Étang B : échantillonnage, identification et effectifs',goal:'Même diagnostic pour l’étang B, identification des espèces et estimation du nombre de poissons des deux étangs.',
+  tasks:[
+   {t:'Mesurer l’eau de l’étang B tôt le matin, avant de pêcher.',min:20,go:'water'},
+   {t:'Pêche d’échantillonnage de l’étang B en 2 passages (même méthode, même filet, même durée qu’en semaine 2).',min:60,go:'sampling'},
+   {t:'Compter, mesurer et peser ; noter les espèces et saisir C1, C2 dans l’application.',min:60,go:'sampling'},
+   {t:'Photographier chaque espèce, puis remettre les poissons à l’eau avec précaution.',min:25},
+   {t:'Envoyer les photos à un technicien (service local de pêche ou d’aquaculture, vendeur d’alevins, coopérative) pour identifier les espèces.',min:20},
+   {t:'Estimer le nombre de poissons de chaque étang avec l’estimateur ci-dessous et mettre à jour la fiche étang.',min:20,go:'ponds'},
+   {t:'Comparer A et B : espèces, poids moyen, état visible des poissons (lésions, parasites, maigreur).',min:20}],
+  cp:{criteria:['Espèces des deux étangs identifiées, ou réponse du technicien en attente.','Poids moyen et effectif estimés pour A et B.','Eau mesurée dans les plages du guide (20–30 °C, pH 6,7–8,6).'],ifNot:'N’achète ni aliment ni alevins tant que ces trois éléments ne sont pas réunis.'},
+  between:'5 minutes par jour, comme les semaines précédentes.'},
+ {n:4,phase:'Phase 2 — Décision',title:'Décider : que produire, avec quel budget, qui nourrit en semaine ?',goal:'Prendre la décision d’investir (ou non) à partir de chiffres réels, et organiser le quotidien.',
+  tasks:[
+   {t:'Saisir les groupes de poissons (espèce, effectif, poids moyen) dans le plan d’alimentation et lire la ration par jour.',min:30,go:'plan'},
+   {t:'Faire valider ration et type d’aliment par un technicien ou le vendeur d’aliment.',min:30},
+   {t:'Comparer le prix du kg d’aliment chez 2 ou 3 fournisseurs ; saisir le prix retenu dans le plan.',min:45,go:'plan'},
+   {t:'Calculer le budget d’aliment pour 8 semaines (coût par jour × 56) et le comparer au budget disponible.',min:20,go:'reports'},
+   {t:'Relever les prix de vente locaux et repérer 2 ou 3 acheteurs possibles (marché, restaurants, revendeuses) ; les ajouter au carnet clients.',min:45,go:'sales'},
+   {t:'Trouver la personne qui nourrira du lundi au vendredi, convenir de sa rémunération et lui présenter la fiche de routine.',min:30},
+   {t:'Décider pour chaque étang : production avec aliment, ou élevage extensif sans aliment. Mettre à jour le statut de l’étang.',min:20,go:'ponds'}],
+  cp:{criteria:['Ouvrages sûrs (point de contrôle de la semaine 1 validé).','Espèces identifiées et ration validée par un technicien.','Budget d’aliment pour 8 semaines couvert, avec une marge.','Une personne fiable pour nourrir chaque jour.'],ifNot:'Reste en élevage extensif (sans aliment), ou démarre avec un seul étang. Donner la ration de toute la semaine le samedi n’est pas une solution : l’aliment non mangé dégrade l’eau et fait manquer d’oxygène.'},
+  between:'Toujours 5 minutes par jour. L’alimentation ne démarre qu’après la validation de ce point.'},
+ {n:5,phase:'Phase 3 — Démarrage',title:'Démarrer l’alimentation sur l’étang prioritaire',goal:'Lancer l’alimentation proprement et former la personne qui assure le quotidien.',
+  tasks:[
+   {t:'Acheter l’aliment pour 2 semaines au maximum ; le stocker au sec, sur palette, à l’abri des rongeurs. Enregistrer l’achat.',min:45,go:'expenses'},
+   {t:'Peser un gobelet ou un seau d’aliment pour doser sans balance ; marquer « 1 repas » sur le récipient.',min:20},
+   {t:'Mesurer l’eau le matin avant le premier repas.',min:20,go:'water'},
+   {t:'Premier repas supervisé : donner par petites quantités, observer la consommation pendant 15 à 20 minutes, noter les refus.',min:40,go:'feeding'},
+   {t:'Imprimer la fiche de routine, la remettre à la personne et lui montrer quoi faire si des poissons sont en surface (ne pas nourrir, prévenir).',min:30},
+   {t:'Mettre à jour le stock d’aliment dans l’application.',min:15,go:'expenses'}],
+  cp:{criteria:['Le premier repas est consommé en 15 à 20 minutes.','La personne sait doser, noter et prévenir en cas de problème.','Aucun poisson en surface au petit matin.'],ifNot:'Réduis la ration de 20 à 30 % ou suspends-la, et demande l’avis du technicien avant de continuer.'},
+  between:'Routine complète chaque jour (voir la fiche) : observation, repas, notes. Compter 20 à 30 minutes par jour.'},
+ {n:6,phase:'Phase 3 — Démarrage',title:'Contrôle de la première semaine d’alimentation',goal:'Vérifier que le démarrage se passe bien et ajuster la ration avant d’aller plus loin.',
+  tasks:[
+   {t:'Relire le journal des 7 derniers jours : repas faits, refus, mortalités, observations.',min:30,go:'daily'},
+   {t:'Mesurer l’eau le matin dans les deux étangs.',min:30,go:'water'},
+   {t:'Inspecter les digues et comparer le niveau d’eau au repère posé en semaine 1.',min:30,go:'site'},
+   {t:'Nettoyer les grilles et les filtres ; couper l’herbe sur les digues.',min:45},
+   {t:'Ajuster la ration (± 20 %) selon la consommation observée.',min:15,go:'plan'},
+   {t:'Vérifier le stock d’aliment et les jours restants ; racheter s’il reste moins de 7 jours.',min:15,go:'expenses'},
+   {t:'Télécharger une sauvegarde JSON.',min:5,go:'settings'}],
+  cp:{criteria:['Aucune mortalité inexpliquée.','Aucun poisson en surface au petit matin.','Aliment consommé sans refus répétés.','Eau dans les plages du guide.'],ifNot:'Suspends l’alimentation, cherche la cause (eau, ration, densité, ouvrages) et demande un avis technique avant de reprendre.'},
+  between:'Routine complète chaque jour.'},
+ {n:7,phase:'Phase 4 — Croissance et suivi',title:'Pesée de contrôle n°1 (croissance)',goal:'Mesurer la croissance depuis le début de l’alimentation et recalculer la ration.',
+  tasks:[
+   {t:'Échantillonner les deux étangs avec la même méthode qu’en semaines 2 et 3 (2 passages, comptage, pesée).',min:150,go:'sampling'},
+   {t:'Calculer le gain de poids par jour : (poids moyen actuel − poids moyen précédent) ÷ nombre de jours écoulés.',min:15},
+   {t:'Mettre à jour effectif et poids moyen dans le plan d’alimentation et relire la nouvelle ration.',min:20,go:'plan'},
+   {t:'Mesurer l’eau le matin.',min:20,go:'water'},
+   {t:'Corriger l’effectif estimé en tenant compte des mortalités enregistrées.',min:10,go:'ponds'}],
+  cp:{criteria:['Le poids moyen augmente dans les étangs nourris.','La ration est recalculée avec le nouveau poids moyen.'],ifNot:'Si le poids ne progresse pas : vérifie quantité et qualité de l’aliment, qualité de l’eau, nombre de poissons et espèce, puis demande un avis technique.'},
+  between:'Routine complète chaque jour.'},
+ {n:8,phase:'Phase 4 — Croissance et suivi',title:'Entretien, eau et revue du budget',goal:'Garder les ouvrages en bon état et vérifier que les dépenses restent maîtrisées.',
+  tasks:[
+   {t:'Entretenir digues, grilles et trop-plein : désherbage, réparation de l’érosion, dégagement des passages d’eau.',min:90},
+   {t:'Mesurer l’eau, plus la transparence si possible.',min:30,go:'water'},
+   {t:'Revue financière : comparer dépenses réelles et budget prévu dans « Trésorerie & rapports ».',min:30,go:'reports'},
+   {t:'Mettre à jour la liste d’acheteurs et discuter des dates et prix possibles.',min:45,go:'sales'},
+   {t:'Vérifier les stocks et planifier la prochaine commande d’aliment.',min:15,go:'expenses'},
+   {t:'Passer en revue les alertes du journal du jour.',min:15,go:'daily'}],
+  cp:{criteria:['Dépenses cohérentes avec le budget prévu.','Aucune alerte d’eau non traitée.','Trésorerie suffisante jusqu’à la récolte.'],ifNot:'Réduis la ration ou concentre l’alimentation sur l’étang le plus prometteur.'},
+  between:'Routine complète chaque jour.'},
+ {n:9,phase:'Phase 4 — Croissance et suivi',title:'Pesée de contrôle n°2 et ajustements',goal:'Confirmer la croissance et estimer à quelle date les poissons atteindront la taille demandée.',
+  tasks:[
+   {t:'Échantillonner les deux étangs (même méthode).',min:150,go:'sampling'},
+   {t:'Calculer le gain de poids par jour et le comparer à la semaine 7.',min:15},
+   {t:'Ajuster la ration avec le nouveau poids moyen.',min:20,go:'plan'},
+   {t:'Estimer la date à laquelle le poids moyen atteindra la taille demandée par les acheteurs.',min:20},
+   {t:'Mesurer l’eau et inspecter les digues.',min:45,go:'water'}],
+  cp:{criteria:['La taille demandée par les acheteurs est atteignable dans les semaines à venir.','Mortalité faible et stable.'],ifNot:'Repousse la récolte et revois ration, densité et qualité de l’eau avec un technicien.'},
+  between:'Routine complète chaque jour.'},
+ {n:10,phase:'Phase 5 — Commercialisation',title:'Préparer la récolte et la vente',goal:'Réunir acheteurs, matériel et équipe avant de récolter.',
+  tasks:[
+   {t:'Confirmer avec 2 ou 3 acheteurs : quantité, prix au kg et date de récolte.',min:45,go:'sales'},
+   {t:'Préparer le matériel : filets, bacs, balance, glace ou caisses isothermes, sacs, carnet de ventes.',min:45},
+   {t:'Prévoir 2 ou 3 personnes pour le jour de la récolte.',min:15},
+   {t:'Décider : récolte partielle ou totale, et où mettre le reste des poissons.',min:20,go:'harvest'},
+   {t:'Demander au technicien s’il faut suspendre l’aliment 12 à 24 h avant la récolte, et prévenir la personne qui nourrit.',min:10},
+   {t:'Pesée rapide de contrôle pour confirmer la taille des poissons.',min:60,go:'sampling'}],
+  cp:{criteria:['Poids moyen proche de la taille demandée par les acheteurs.','Acheteurs confirmés (quantité, prix, date).','Matériel et équipe prêts.'],ifNot:'Reporte la récolte d’un ou deux samedis plutôt que de vendre trop petit ou sans acheteur.'},
+  between:'Routine complète chaque jour ; arrêt de l’aliment selon l’avis du technicien.'},
+ {n:11,phase:'Phase 5 — Commercialisation',title:'Récolte et vente',goal:'Récolter dans de bonnes conditions, vendre vite et enregistrer chaque vente et chaque paiement.',
+  tasks:[
+   {t:'Récolter tôt le matin (fraîcheur), avec de l’eau fraîche et en travaillant vite.',min:120},
+   {t:'Peser et enregistrer la récolte (poids et nombre de poissons).',min:15,go:'harvest'},
+   {t:'Vendre au plus vite ou conserver sur glace ; noter chaque vente et chaque paiement reçu.',min:60,go:'sales'},
+   {t:'Noter les paiements différés pour les relancer.',min:15,go:'sales'},
+   {t:'Mettre à jour l’effectif restant dans les étangs.',min:10,go:'ponds'}],
+  cp:{criteria:['Récolte pesée et enregistrée.','Ventes et encaissements saisis.','Poisson vendu ou conservé correctement le jour même.'],ifNot:'Si du poisson reste invendu, prévois une transformation (fumage, séchage) comme décrit dans le guide.'},
+  between:'Routine adaptée au poisson restant dans les étangs.'},
+ {n:12,phase:'Phase 6 — Bilan',title:'Bilan du cycle et décision pour la suite',goal:'Chiffrer le cycle et décider quoi refaire, changer ou arrêter.',
+  tasks:[
+   {t:'Lire « Trésorerie & rapports » : dépenses, encaissements, créances.',min:30,go:'reports'},
+   {t:'Calculer les indicateurs : aliment total ÷ poisson produit (indice de conversion), coût de revient au kg, marge, mortalité.',min:45},
+   {t:'Relancer les clients qui n’ont pas encore payé et enregistrer les paiements reçus.',min:15,go:'sales'},
+   {t:'Décider du prochain cycle : même espèce ou autre, densité, deuxième étang, période de repos et d’entretien.',min:45,go:'ponds'},
+   {t:'Télécharger la sauvegarde JSON et l’export CSV du cycle.',min:10,go:'settings'},
+   {t:'Fixer la date de début du cycle suivant (modifier le 1er samedi du programme).',min:10}],
+  cp:{criteria:['Bilan chiffré établi.','Décision du prochain cycle prise.','Créances et dettes à jour.'],ifNot:'Garde l’étang en entretien et ne relance pas d’achats avant d’avoir clarifié les chiffres.'},
+  between:'Routine selon la décision prise.'}
+];
+const CP=[['','À évaluer'],['go','✅ Validé'],['reserve','⚠️ Validé avec réserves'],['stop','⛔ Non validé']];
+let wkOpen={};
+function addDays(d,n){return new Date(new Date(d+'T00:00:00Z').getTime()+n*86400000).toISOString().slice(0,10)}
+function nextSat(d){let dow=new Date(d+'T00:00:00Z').getUTCDay();return addDays(d,(6-dow+7)%7)}
+function satStart(){if(!state.weekly.start){state.weekly.start=nextSat(dateNow());persist()}return state.weekly.start}
+function weekDate(n){return addDays(satStart(),(n-1)*7)}
+function curWeek(){let t=dateNow();for(const w of WEEKS){if(weekDate(w.n)>=t)return w.n}return WEEKS.length+1}
+function weekMin(w){return w.tasks.reduce((a,t)=>a+t.min,0)}
+function fmtH(m){let h=Math.floor(m/60),r=m%60;return h+' h'+(r?' '+String(r).padStart(2,'0'):'')}
+function weekDone(w){return w.tasks.filter((t,i)=>state.weekly.done[w.n+'|'+i]).length}
+function cpOf(n){return (state.weekly.cp||{})[n]||{status:'',notes:''}}
+function cpBadge(s){return s==='go'?'<span class="badge ok">Validé</span>':s==='reserve'?'<span class="badge todo">Réserves</span>':s==='stop'?'<span class="badge late">Non validé</span>':'<span class="badge">À évaluer</span>'}
+function toggleWk(n,i){let k=n+'|'+i;if(state.weekly.done[k])delete state.weekly.done[k];else state.weekly.done[k]=true;save()}
+function setCp(n,field,v){state.weekly.cp=state.weekly.cp||{};let c=state.weekly.cp[n]=state.weekly.cp[n]||{status:'',notes:''};c[field]=v;if(field==='status')save();else persist()}
+function setWeeklyStart(v){if(!v)return;state.weekly.start=v;if(new Date(v+'T00:00:00Z').getUTCDay()!==6)toast('Attention : cette date n’est pas un samedi');save()}
+function calcN(){let a=num(document.getElementById('c1').value),b=num(document.getElementById('c2').value),el=document.getElementById('nres');
+ if(a>0&&b>=0&&a>b)el.innerHTML='Effectif estimé ≈ <b>'+Math.round(a*a/(a-b))+'</b> poissons (C1² ÷ (C1 − C2)).';
+ else if(a>0&&b>=a)el.textContent='Le 2e passage doit capturer moins de poissons que le 1er : refais un échantillonnage avec le même effort, ou utilise une estimation prudente.';
+ else el.textContent='Saisis C1 et C2.'}
+function printRoutine(){document.body.classList.add('pr-routine');window.print();setTimeout(()=>document.body.classList.remove('pr-routine'),500)}
+function weekCard(w,cur){let sat=weekDate(w.n),dn=weekDone(w),tot=w.tasks.length,cp=cpOf(w.n),past=sat<dateNow();
+ let st=w.n===cur?'<span class="badge todo">Prochain samedi</span>':(past?(dn===tot?'<span class="badge ok">Terminée</span>':'<span class="badge late">En retard</span>'):'');
+ let open=wkOpen[w.n]!==undefined?wkOpen[w.n]:w.n===cur;
+ return `<details class="wk" ${open?'open':''} ontoggle="wkOpen[${w.n}]=this.open"><summary><strong>S${w.n} — ${sat}</strong><span>${esc(w.title)}</span>${st}<span class="badge">${dn}/${tot} tâches • ≈ ${fmtH(weekMin(w))}</span>${cpBadge(cp.status)}</summary><div class="wkbody"><p class="muted small">${esc(w.phase)} — <b>Objectif :</b> ${esc(w.goal)}</p>
+ ${w.tasks.map((t,i)=>{let d=!!state.weekly.done[w.n+'|'+i];return `<div class="step"><button class="check ${d?'done':''}" onclick="toggleWk(${w.n},${i})">${d?'✓':''}</button><div class="stepmain"><strong>${esc(t.t)}</strong><p>≈ ${t.min} min</p></div><div class="taskside">${t.go?`<button class="btn sm soft" onclick="go('${t.go}')">Ouvrir →</button>`:''}</div></div>`}).join('')}
+ <div class="alert ${cp.status==='stop'?'urgent':cp.status==='go'?'good':''}" style="margin-top:14px"><b>Point de contrôle S${w.n}</b> — pour passer à la suite :<ul style="margin:6px 0">${w.cp.criteria.map(c=>`<li>${esc(c)}</li>`).join('')}</ul><div><b>Sinon :</b> ${esc(w.cp.ifNot)}</div></div>
+ <div class="formgrid"><div class="field"><label>Résultat du point de contrôle</label><select onchange="setCp(${w.n},'status',this.value)">${CP.map(o=>`<option value="${o[0]}" ${cp.status===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div><div class="field"><label>Entre ce samedi et le suivant</label><div class="muted small">${esc(w.between)}</div></div><div class="field full"><label>Notes du samedi (constats, décisions, mesures)</label><textarea onchange="setCp(${w.n},'notes',this.value)">${esc(cp.notes||'')}</textarea></div></div></div></details>`}
+function weeklyPage(){let cur=curWeek(),start=satStart();
+ let rows=WEEKS.map(w=>`<tr><td><b>S${w.n}</b></td><td>${weekDate(w.n)}</td><td>${esc(w.phase.replace(/^Phase \d — /,''))}</td><td>${esc(w.title)}</td><td>${weekDone(w)}/${w.tasks.length}</td><td>≈ ${fmtH(weekMin(w))}</td><td>${cpBadge(cpOf(w.n).status)}</td></tr>`);
+ let blank='<tr class="blank"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'.repeat(7);
+ let routine=`<section class="card" id="routine"><h3>Fiche de routine pour la semaine (à imprimer et remettre à la personne qui s’occupe des étangs)</h3>
+ <div class="sectiontitle">Semaines 1 à 4 (avant l’alimentation) — 5 minutes par jour</div><ul><li>Regarder la surface de chaque étang : des poissons qui pipent l’air ?</li><li>Le niveau d’eau est-il sous le repère ?</li><li>Compter et retirer les poissons morts.</li></ul>
+ <div class="sectiontitle">À partir de la semaine 5 (alimentation lancée) — 20 à 30 minutes par jour</div><p class="small"><b>Matin, avant de nourrir :</b></p><ol><li>Regarder chaque étang : <b>si des poissons sont en surface, ne pas nourrir et prévenir tout de suite.</b></li><li>Niveau d’eau comparé au repère ; retirer et compter les poissons morts.</li><li>Nettoyer les grilles et filtres.</li><li>Premier repas : une mesure marquée, donnée en 2 ou 3 fois.</li><li>Rester 15 à 20 minutes : tout est-il mangé ? Noter les refus.</li></ol><p class="small"><b>Soir :</b></p><ol><li>Deuxième repas (si prévu), même méthode.</li><li>Ronde : digues, trous, traces de prédateurs, vols.</li><li>Noter dans le carnet ci-dessous.</li></ol>
+ <p class="small"><b>En cas de problème, appeler :</b> ______________________________</p>
+ <div class="tablewrap"><table><thead><tr><th>Date</th><th>Étang</th><th>Repas</th><th>Quantité</th><th>Refus ?</th><th>Morts</th><th>Observations</th></tr></thead><tbody>${blank}</tbody></table></div>
+ <div class="actions no-print" style="margin-top:12px"><button class="btn primary" onclick="printRoutine()">Imprimer la fiche</button></div><p class="footnote">Le samedi, recopie le carnet dans l’application (Alimentation, Mortalités, Journal du jour).</p></section>`;
+ let est=`<section class="card"><h3>Estimateur d’effectif (2 passages)</h3><p class="muted small">Pêche deux fois avec le même effort, sans remettre à l’eau les poissons du 1er passage. Saisis le nombre de poissons de chaque passage.</p><div class="formgrid"><div class="field"><label>Poissons au passage 1 (C1)</label><input id="c1" type="number" min="0" oninput="calcN()"></div><div class="field"><label>Poissons au passage 2 (C2)</label><input id="c2" type="number" min="0" oninput="calcN()"></div></div><p id="nres" style="margin-top:12px">Saisis C1 et C2.</p><p class="footnote">Estimation grossière : elle suppose le même effort et la même facilité de capture aux deux passages. Reporte le résultat dans la fiche de l’étang comme estimation, pas comme comptage exact.</p></section>`;
+ return `<div class="pagehead"><div><h2>Programme du samedi</h2><div class="muted">12 samedis pour diagnostiquer, lancer, suivre et vendre, avec un point de contrôle à chaque étape.</div></div><div class="actions"><label class="small muted" style="align-self:center">1er samedi :</label><input type="date" value="${start}" onchange="setWeeklyStart(this.value)" style="border:1px solid #cfdcd4;border-radius:9px;padding:8px"></div></div>
+ <div class="alert">Ce programme suppose que tu es disponible le samedi seulement : chaque samedi demande environ 3 à 4 heures. Les semaines 1 à 4 (diagnostic) ne demandent qu’un passage de 5 minutes en semaine. <b>À partir de la semaine 5, nourrir demande une personne chaque jour</b> (fiche de routine plus bas). Les dates de récolte (semaines 10 et 11) sont indicatives : elles dépendent de la taille des poissons mesurée aux pesées.</div>
+ <div class="grid stats">${stat('Prochain samedi',cur>WEEKS.length?'Terminé':'S'+cur,cur>WEEKS.length?'Fais le bilan':weekDate(cur))}${stat('Tâches faites',WEEKS.reduce((a,w)=>a+weekDone(w),0)+' / '+WEEKS.reduce((a,w)=>a+w.tasks.length,0),'sur 12 samedis')}${stat('Points validés',WEEKS.filter(w=>cpOf(w.n).status==='go').length+' / '+WEEKS.length,'points de contrôle')}${stat('Durée par samedi','3 à 4 h','selon la semaine')}</div>
+ ${card('Vue d’ensemble',table(['Semaine','Date','Phase','Thème','Tâches','Durée','Contrôle'],rows))}
+ <div style="margin-top:16px">${WEEKS.map(w=>weekCard(w,cur)).join('')}</div>
+ <div class="grid two" style="margin-top:16px">${routine}${est}</div>
+ <p class="footnote" style="margin-top:12px">Le programme est un cadre : adapte-le aux résultats des points de contrôle. Si un point n’est pas validé, ne passe pas à la semaine suivante et reporte les tâches (ou décale le 1er samedi). Les repères techniques sont indicatifs ; fais-les valider par un technicien local.</p>`}
+function weeklyDashCard(){let cur=curWeek();
+ if(cur>WEEKS.length)return card('Programme du samedi','<div class="empty">Les 12 samedis sont passés : fais le bilan puis planifie le cycle suivant.</div><button class="btn" onclick="go(\'weekly\')">Ouvrir le programme →</button>');
+ let w=WEEKS[cur-1],dn=weekDone(w),tot=w.tasks.length,warn=[];
+ if(cur>1){let p=cpOf(cur-1);if(p.status==='stop'||p.status==='reserve')warn.push(`Point de contrôle S${cur-1} : ${p.status==='stop'?'non validé':'validé avec réserves'} — à régler avant d’avancer.`)}
+ let late=WEEKS.filter(x=>x.n<cur&&weekDone(x)<x.tasks.length).length;if(late)warn.push(`${late} samedi(s) précédent(s) avec des tâches non terminées.`);
+ return card(`Prochain samedi — ${weekDate(cur)} (S${cur})`,`${warn.map(x=>`<div class="alert">${esc(x)}</div>`).join('')}<strong>${esc(w.title)}</strong><p class="muted small">${esc(w.goal)}</p><div style="display:flex;justify-content:space-between;margin:8px 0"><span class="muted small">${dn}/${tot} tâches • ≈ ${fmtH(weekMin(w))}</span><strong>${Math.round(dn/tot*100)}%</strong></div><div class="progress"><span style="width:${dn/tot*100}%"></span></div><button class="btn primary" style="margin-top:12px" onclick="go('weekly')">Ouvrir le programme →</button>`)}
+function go(p){editing=null;closeMenu();page=p;document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===p));render();window.scrollTo(0,0)}
+function render(){document.getElementById('topTitle').textContent=titles[page]||titles.dashboard;let v=document.getElementById('view');v.innerHTML=({dashboard,daily:dailyPage,weekly:weeklyPage,steps:stepsPage,ponds:pondsPage,site:sitePage,guide:guidePage,sampling:samplingPage,plan:planPage,feeding:feedingPage,water:waterPage,mortality:mortalityPage,expenses:expensesPage,harvest:harvestPage,sales:salesPage,reports:reportsPage,settings:settingsPage}[page]||dashboard)();bindForms()}
+function toggleStep(i){state.steps[i].done=!state.steps[i].done;save()}
+function toggleAgro(i){state.agro[i]=!state.agro[i];persist()}
+function edit(arr,id){editing={arr,id};render();window.scrollTo({top:0,behavior:'smooth'})}
+function cancelEdit(){editing=null;render()}
+function del(arr,id){
+ let msg='Supprimer cet enregistrement ?';
+ if(arr==='feedings'&&state.expenses.some(x=>x.feedId===id))msg+='\n(La dépense liée à cette distribution sera aussi supprimée.)';
+ if(arr==='sales')msg='Supprimer cette vente et tous ses paiements ?';
+ if(!confirm(msg))return;
+ if(arr==='feedings')state.expenses=state.expenses.filter(x=>x.feedId!==id);
+ if(arr==='expenses'){let x=state.expenses.find(y=>y.id===id);if(x&&x.feedId){let f=state.feedings.find(z=>z.id===x.feedId);if(f)f.cost=0}}
+ state[arr]=state[arr].filter(x=>x.id!==id);
+ if(editing&&editing.id===id)editing=null;
+ save();toast('Enregistrement supprimé')}
+function bindForms(){document.querySelectorAll('form[data-form]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();
+ let d=Object.fromEntries(new FormData(f).entries()),kind=f.dataset.form,eid=f.dataset.edit||null;
+ const opt=k=>(d[k]===''||d[k]===undefined)?null:num(d[k]);
+ const upsert=(arr,rec)=>{if(eid){let o=state[arr].find(x=>x.id===eid);if(o)Object.assign(o,rec)}else state[arr].push({id:uid(),...rec})};
+ if(kind==='config'){state.config={...state.config,name:d.name,owner:d.owner,budget:num(d.budget),startDate:d.startDate,notes:d.notes};}
+ else if(kind==='siteCheck'){state.siteChecks={...state.siteChecks,...d};}
+ else if(kind==='editPond'){let p=state.ponds.find(x=>x.id===f.dataset.id);if(p)Object.assign(p,{name:d.name,area:num(d.area),depth:num(d.depth),stockEstimate:num(d.stockEstimate),species:d.species,status:d.status,notes:d.notes});}
+ else if(kind==='sample'){
+  if(num(d.measured)>num(d.caught)){alert('Le nombre mesuré/pesé ne peut pas dépasser le nombre capturé.');return}
+  upsert('samples',{...d,caught:num(d.caught),measured:num(d.measured),weight:num(d.weight),length:num(d.length)});}
+ else if(kind==='feeding'){
+  if(num(d.kg)<=0){alert('La quantité distribuée doit être supérieure à 0.');return}
+  let rec={...d,kg:num(d.kg),cost:num(d.cost)},id;
+  if(eid){upsert('feedings',rec);id=eid}else{id=uid();state.feedings.push({id,...rec})}
+  let ex=state.expenses.find(x=>x.feedId===id);
+  if(rec.cost>0){let er={date:rec.date,category:'Alimentation',item:'Aliment distribué ('+rec.pond+')',quantity:rec.kg,amount:rec.cost,supplier:'',notes:'Ajouté depuis le module alimentation',feedId:id};if(ex)Object.assign(ex,er);else state.expenses.push({id:uid(),...er})}
+  else if(ex){state.expenses=state.expenses.filter(x=>x!==ex)}}
+ else if(kind==='water'){upsert('water',{...d,temp:opt('temp'),ph:opt('ph'),oxygen:opt('oxygen')});}
+ else if(kind==='mortality'){if(num(d.count)<1){alert('Indique au moins 1 poisson.');return}upsert('mortalities',{...d,count:num(d.count)});}
+ else if(kind==='expense'){upsert('expenses',{...d,amount:num(d.amount),quantity:num(d.quantity)});}
+ else if(kind==='stock'){
+  let rec={...d,qty:num(d.qty),threshold:num(d.threshold)};
+  if(eid)upsert('stockItems',rec);
+  else{let old=state.stockItems.find(x=>x.name.toLowerCase()===d.name.toLowerCase());if(old)Object.assign(old,rec);else state.stockItems.push({id:uid(),...rec})}}
+ else if(kind==='harvest'){upsert('harvests',{...d,kg:num(d.kg),count:num(d.count)});}
+ else if(kind==='client'){
+  if(eid){let old=state.clients.find(x=>x.id===eid);if(old&&old.name!==d.name)state.sales.forEach(s=>{if(s.client===old.name)s.client=d.name})}
+  upsert('clients',{...d});}
+ else if(kind==='sale'){
+  let kg=num(d.kg),price=num(d.price),total=kg*price;
+  if(kg<=0||price<=0){alert('La quantité et le prix doivent être supérieurs à 0.');return}
+  if(eid){let o=state.sales.find(x=>x.id===eid);if(o&&paidOf(o)>total+0.001){alert('Le nouveau total est inférieur aux paiements déjà reçus ('+money(paidOf(o))+'). Corrige d’abord les paiements.');return}
+   if(o)Object.assign(o,{date:d.date,client:d.client,product:d.product,kg,price,total,notes:d.notes});}
+  else{let paid=d.paid===''?total:num(d.paid);if(paid>total+0.001){alert('Le montant encaissé dépasse le total de la vente.');return}
+   state.sales.push({id:uid(),date:d.date,client:d.client,product:d.product,kg,price,total,notes:d.notes,payments:paid>0?[{id:uid(),date:d.date,amount:paid,method:'',note:'Encaissement à la vente'}]:[]})}}
+ else if(kind==='payment'){
+  let s=state.sales.find(x=>x.id===d.sale);if(!s){alert('Choisis une vente à solder.');return}
+  let a=num(d.amount);if(a<=0){alert('Le montant doit être supérieur à 0.');return}
+  if(a>resteOf(s)+0.001){alert('Le montant dépasse le reste à encaisser ('+money(resteOf(s))+').');return}
+  s.payments.push({id:uid(),date:d.date,amount:a,method:d.method,note:d.notes});payPrefill=null;}
+ else if(kind==='feedPrice'){state.config.feedPrice=num(d.feedPrice);}
+ else if(kind==='group'){if(num(d.count)<0){alert('Effectif invalide.');return}upsert('groups',{pond:d.pond,species:d.species,count:num(d.count),avgWeight:num(d.avgWeight),notes:d.notes});}
+ else if(kind==='obs'){let dt=f.dataset.date,pd=f.dataset.pond;let day=state.daily[dt]=state.daily[dt]||{checks:{},obs:{}};day.obs=day.obs||{};day.obs[pd]={...d};}
+ editing=null;save();toast(eid?'Modification enregistrée':'Données enregistrées');}));}
+function toggleMenu(){let n=document.getElementById('nav'),o=n.classList.toggle('open');document.getElementById('menuBtn').textContent=o?'✕':'☰'}
+function closeMenu(){let n=document.getElementById('nav'),b=document.getElementById('menuBtn');if(n)n.classList.remove('open');if(b)b.textContent='☰'}
+function isIOS(){return /iPhone|iPad|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1)}
+async function saveFile(content,name,type){
+ if(isIOS()&&navigator.canShare&&navigator.share){try{let f=new File([content],name,{type});if(navigator.canShare({files:[f]})){await navigator.share({files:[f],title:name});return true}}catch(e){if(e&&e.name==='AbortError')return false}}
+ downloadBlob(new Blob([content],{type}),name);return true}
+async function backup(){let prev=state.lastBackup;state.lastBackup=new Date().toISOString();let json=JSON.stringify(state,null,2);
+ let ok=await saveFile(json,'pisciculture-ahoue-sauvegarde-'+dateNow()+'.json','application/json');
+ if(!ok)state.lastBackup=prev;persist();render();if(ok)toast('Sauvegarde créée')}
+function restore(e){let file=e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let s=JSON.parse(r.result);if(!s.config||!s.ponds)throw new Error('format');if(confirm('Remplacer les données actuelles par cette sauvegarde ?')){state=migrate({...structuredClone(defaultState),...s,config:{...defaultState.config,...s.config}});save();toast('Sauvegarde restaurée')}}catch(err){alert('Fichier invalide ou incompatible.')}e.target.value=''};r.readAsText(file)}
+function exportCSV(){let lines=[['Type','Date','Étang/Client','Détail','Quantité','Montant FCFA']];
+ state.expenses.forEach(x=>lines.push(['Dépense',x.date,'',x.category+' - '+x.item,x.quantity,x.amount]));
+ state.feedings.forEach(x=>lines.push(['Alimentation',x.date,x.pond,(x.meal?x.meal+' - ':'')+x.type+' ('+x.consumption+')',x.kg,x.cost]));
+ state.sales.forEach(x=>{lines.push(['Vente',x.date,x.client,x.product,x.kg,x.total]);(x.payments||[]).forEach(p=>lines.push(['Paiement',p.date,x.client,'Encaissement '+(p.method||''),'',p.amount]))});
+ state.harvests.forEach(x=>lines.push(['Récolte',x.date,x.pond,x.destination,x.kg,'']));
+ state.mortalities.forEach(x=>lines.push(['Mortalité',x.date,x.pond,x.cause,x.count,'']));
+ state.samples.forEach(x=>lines.push(['Échantillonnage',x.date,x.pond,'Poids moyen '+(x.weight&&x.measured?(num(x.weight)/num(x.measured)).toFixed(1)+' g':'—'),x.measured,'']));
+ state.water.forEach(x=>lines.push(['Qualité eau',x.date,x.pond,'T°C '+(x.temp??'')+' | pH '+(x.ph??'')+' | O2 '+(x.oxygen??'')+' | '+x.appearance,'','']));
+ Object.keys(state.daily).sort().forEach(d=>Object.entries((state.daily[d]||{}).obs||{}).forEach(([p,o])=>lines.push(['Observation',d,p,[o.behavior,o.level,o.color,o.weather,o.notes].filter(Boolean).join(' | '),'',''])));
+ let csv='﻿'+lines.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');saveFile(csv,'rapport-pisciculture-ahoue-'+dateNow()+'.csv','text/csv;charset=utf-8')}
+function downloadBlob(blob,name){let a=document.createElement('a');let url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function resetData(){if(confirm('Effacer toutes les données et revenir aux valeurs initiales ?')){state=structuredClone(defaultState);save();toast('Application réinitialisée')}}
+render();
+try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist()}catch(e){}
+if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
+</script>
+</body>
+</html>
